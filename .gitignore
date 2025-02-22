@@ -1,0 +1,58 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+/.suite
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.angular/cache
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+package-lock.json
+/.vs/HayaanFrontEnd/FileContentIndex/5376372c-7545-48cb-87de-ff095e5e9774.vsidx
+/.vs/HayaanFrontEnd/FileContentIndex/14703bfd-e99e-4387-8c03-3dd19108a6e3.vsidx
+/.vs/HayaanFrontEnd/FileContentIndex/3d4b0e18-926a-4998-8a3d-344b3aa9dad8.vsidx
+/.vs/HayaanFrontEnd/FileContentIndex/5b3da300-1c5a-4d11-b30c-be68fdb20fda.vsidx
+/.vs/HayaanFrontEnd/v17/.wsuo
+/.vs/HayaanFrontEnd/FileContentIndex/ee6b0f4d-0348-4789-b905-2a1ad01acf5a.vsidx
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite-journal
+/.vs/HayaanFrontEnd/FileContentIndex/1dac50e7-2c4f-4480-8c5b-de846c008a96.vsidx
+/.vs/HayaanFrontEnd/FileContentIndex

@@ -1,0 +1,144 @@
+input[type="file"] {
+  display: none;
+}
+
+.file-input {
+  border: 2px #d8d8d8 solid;
+  background-color: rgba(#F0F4FA, 0.5);
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #858d9b;
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: dashed;
+  border-width: 1px;
+
+  span {
+    color: red;
+    // color: #fff;
+    font-weight: bolder;
+    padding: 4.8px 4.8px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-inline-end: 18px;
+    img {
+      width: 18px;
+    }
+  }
+}
+
+/*
+    border: 2px #B8C4CE dashed;
+    background-color: #F0F4FA;
+    text-align: center;
+    padding: 5px 3px 3px 3px;
+    cursor: pointer;
+    border-radius: 6px;
+
+*/
+.file-details {
+  font-size: 12px;
+  cursor: pointer;
+  img {
+    cursor: pointer;
+  }
+}
+
+.progress {
+  width: calc(100% - 30px);
+  background-color: red;
+  border-radius: 0.25rem;
+  display: flex;
+  height: 0.5rem;
+  overflow: hidden;
+  margin-left: 8px;
+}
+
+.progress-bar {
+  align-items: center;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.uploaded {
+  border: 1px solid #9E77ED;
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin-bottom: 2px;
+  &__file{
+    max-width: 30px;
+    width: 100%;
+    margin-right: 8px;
+  }
+  &__size {
+    color: #667085;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  &__progress {
+    width: calc(100% - 30px);
+    background-color: #7F56D9;
+    border-radius: 0.25rem;
+    display: flex;
+    height: 0.5rem;
+    margin-top: 0.5rem;
+    overflow: hidden;
+  }
+
+  &_progress-bar {
+    align-items: center;
+    background-color: #7F56D9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__check{
+    top: 12px;
+    right: 12px;
+  }
+
+  &__wrapper{
+    width: calc(100% - 75px);
+  }
+  &__percentage{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #344054;
+    margin-left: 5px;
+  }
+}
+
+::ng-deep html[dir=rtl] {
+  .progress {
+    margin-left: 8px;
+    margin-right: unset !important;
+  }
+
+  .uploaded {
+    &__file{
+      margin-left: 12px;
+      margin-right: unset !important;
+    }
+
+    &__check{
+      top: 12px;
+      right: unset !important;
+      left: 12px;
+    }
+
+    &__percentage{
+      margin-right: 5px;
+      margin-left: unset !important;
+    }
+
+  }
+}

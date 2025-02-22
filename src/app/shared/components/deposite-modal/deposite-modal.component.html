@@ -1,0 +1,53 @@
+<form [formGroup]="form">
+  <main class="mainContentModal">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12">
+          <div class="details-side bg-white mb-5 login-box-bg">
+            <div class="page-content pb-5 pt-5">
+              <div class="row justify-content-md-center">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <h6 for="amount">
+                      {{ 'BeneficiaryAccount::txt_deposit_through_your_account' | abpLocalization }}
+                    </h6>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="amount">
+                      {{ 'BeneficiaryAccount::txt_name' | abpLocalization }}</label
+                    >
+                    <br />
+                    <label for="amount">data.name </label>
+                  </div>
+
+                  <!-- <div class="form-group">
+                    <label for="amount">  رقم الحساب</label>
+                    <br />
+                    <label for="amount">{{customerAccountNumber }} </label><i   [copy-clipboard]="customerAccountNumber" style="cursor: pointer;"  class="fa-regular fa-copy p-2"></i>
+                  </div> -->
+                  <div class="form-group">
+                    <label for="amount">
+                      {{ 'BeneficiaryAccount::txt_iban' | abpLocalization }}</label
+                    >
+                    <br />
+                    <label for="amount"> data.iban </label>
+                    <i style="cursor: pointer" class="fa-regular fa-copy p-2"></i>
+                  </div>
+                </div>
+
+                <div class="col-md-12 row">
+                  <button type="button" class="btn btn-secondary" (click)="onCloseModel()">
+                    {{ '::btn_Cancel' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="login-box-footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</form>
