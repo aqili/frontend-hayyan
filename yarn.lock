@@ -308,10 +308,10 @@
   dependencies:
     "@angular-eslint/bundled-angular-compiler" "18.1.0"
 
-"@angular/animations@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/animations/-/animations-18.1.5.tgz"
-  integrity sha512-TF9z6yRBLnSLkX15LmIj/VV09a1YgJ4EQjolYmtvO5rDF84YeCkwDiR2jj2V7LnuR2P9gT6MnqShu86pvi8xUg==
+"@angular/animations@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/animations/-/animations-19.2.0.tgz"
+  integrity sha512-GJDwtZ+7XmAAbzCbPSJrR1iMs2l16VoA7myeVl6n5k/KsZywqb4KhPmjzLKpQlAFP0NRjg1LbHc2Fsus7/Ydag==
   dependencies:
     tslib "^2.3.0"
 
@@ -380,10 +380,10 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/common/-/common-18.1.5.tgz"
-  integrity sha512-YQhK12+A1pq+g+87lqHHmzhuNMQQTlHn1eXoYhiM47CRd/D/iwxagNABSbi8/UZyUzDY1AparIEUwmCntNrKUA==
+"@angular/common@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/common/-/common-19.2.0.tgz"
+  integrity sha512-dm8PR94QY3DucXxltdV5p2Yxyr5bfPlmjOElwLhiTvxWbwCZJTVhPc8dw0TCKzCEu+tKafT48u4BLIB34a0A/g==
   dependencies:
     tslib "^2.3.0"
 
@@ -401,24 +401,24 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/compiler/-/compiler-18.1.5.tgz"
-  integrity sha512-K22jJXEIS/Qo3APMMWQmCuq18IyiFT7/WYgY6D3LBkMlMLhVTaTnVG4hKITqp9DdZ/0h1x0dS2KS0WinFs/Kqw==
+"@angular/compiler@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/compiler/-/compiler-19.2.0.tgz"
+  integrity sha512-xGBD0C9ikH4jVDuQU3XzGqbh9Wovl8UR0wNzNd9rm4fltfC9ipz9NbfetsLPKWpPbfnUqmqMe4/pYjGEgWMonw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/core/-/core-18.1.5.tgz"
-  integrity sha512-uhWZJlZ6zXm4nHwIgX9SVpbQuxxRvmgY8hoIVmMHAonuywvoxphUhpku4EGXZhFa024OBGlrLfBAhV7ZAb/MJA==
+"@angular/core@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/core/-/core-19.2.0.tgz"
+  integrity sha512-WKTRltOt3MMWWuhRX7Y9RonKxIYjZeBDE6XRwceHMgaEDS2d8I2D3AIuqizRsgHpJqDPnQnH+vxcek4FivcSGA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/forms/-/forms-18.1.5.tgz"
-  integrity sha512-nRFEquPuan8CfkVZzXqXq0vba6EANE/J+kHXxLW+VFk8l4gC0EuUZUX8lRkj4XFZZSuBU335GnIKY2B2iIZNsg==
+"@angular/forms@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/forms/-/forms-19.2.0.tgz"
+  integrity sha512-/GHQgiDPUr1vMXCB1O8c+O70DcoZykDBzOICCaz3kTu46rp48g6E6iaZVJoozI0iBwB8+rnuTPQnLWJ46w+wVg==
   dependencies:
     tslib "^2.3.0"
 
@@ -437,24 +437,24 @@
     fast-glob "3.3.2"
     yargs "^17.2.1"
 
-"@angular/platform-browser-dynamic@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-18.1.5.tgz"
-  integrity sha512-AiLT20HqBuM3j6CA0fCfYgz12epUPl101S5HOtiD0Gh9gN39qnHCWLD+K6nYjHUZPa8tH+4nhc7TQW3yMDTOXw==
+"@angular/platform-browser-dynamic@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-19.2.0.tgz"
+  integrity sha512-664OAYxzRYx9WjZu+o0VT+vMM0OqPOb0OnbwnyvIVNBuufWK7/IxWZ/U+Kh9A/XJYpDPtB5N1WEfeiO8AAzWnQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-18.1.5.tgz"
-  integrity sha512-I2ETHpcLRw7RX+/6DRB0GTKriIG3OpNs5vv+ArS+Zy9G1WAJ/5N49aiEdrt8AcZs0vvC6M072tpLYfjmuBjQQQ==
+"@angular/platform-browser@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-19.2.0.tgz"
+  integrity sha512-rt3byGZWU0jF6QCLxjP+LH94uL0VM5LgtJ+tYclJqCNB1C3fZrpa86GVd9onVbZmDk0ETUOwm7dQHYdef8oiqw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/router@~18.1.0":
-  version "18.1.5"
-  resolved "https://registry.npmjs.org/@angular/router/-/router-18.1.5.tgz"
-  integrity sha512-1lYearpVHnqRhV65AG1zEnZkSlBV2QGK+xJ0+RYSEVJBUAeMr7iWf+DvvmxVTg3wuwyjfFPC5t98tiOwtijRWQ==
+"@angular/router@^19.0.0":
+  version "19.2.0"
+  resolved "https://registry.npmjs.org/@angular/router/-/router-19.2.0.tgz"
+  integrity sha512-Md/zleBpWMi5H6KPMREM0M2EUAkoqe01zkXla0Z0hHoTn7Ty0fv0Te9bGDioVOG7JgHh6wYCrPJ/uJsjKObyvw==
   dependencies:
     tslib "^2.3.0"
 
@@ -4306,11 +4306,6 @@ fs.realpath@^1.0.0:
   resolved "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
-fsevents@~2.3.2, fsevents@~2.3.3:
-  version "2.3.3"
-  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
-  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
-
 function-bind@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz"
@@ -5815,7 +5810,7 @@ neo-async@^2.6.2:
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-zorro-antd@^17.0.0:
+ng-zorro-antd@^17.0.0, ng-zorro-antd@^17.4.1:
   version "17.4.1"
   resolved "https://registry.npmjs.org/ng-zorro-antd/-/ng-zorro-antd-17.4.1.tgz"
   integrity sha512-KsMYFlRBFPK5FPPoaYIS/uzQ4400WFMLcA9/1LmYZcSgmeINlCvgfiitNcOVLsRyQYlpdIQyOo9z5Ue2SS9ypg==
