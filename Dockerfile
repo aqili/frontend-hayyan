@@ -1,33 +1,36 @@
 # Build stage
 FROM node:20-alpine as builder
 
+# Install necessary build tools
+RUN apk add --no-cache python3 make g++
+
 WORKDIR /app
 
-# Copy package files
+# Copy package files first
 COPY package*.json ./
 
-# Install dependencies with legacy-peer-deps flag
-RUN npm install --legacy-peer-deps
+# Install dependencies with legacy-peer-deps and verbose logging
+RUN npm install --legacy-peer-deps --verbose
 
-# Copy project files
+# Copy the rest of the application
 COPY . .
 
-# Show installed packages and attempt build with verbose logging
-RUN npm list || true && \
-    npm run build --verbose || (echo "Build failed with error:" && npm run build --verbose)
+# Try to build with more detailed output
+RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build || \
+    (echo "Build failed. Showing npm logs:" && \
+     cat npm-debug.log || true && \
+     cat /root/.npm/_logs/*-debug.log || true && \
+     exit 1)
 
-# Serve stage
+# Production stage
 FROM nginx:alpine
 
 # Copy built assets
-# Update this path based on your project name and Angular version
 COPY --from=builder /app/dist/*/browser /usr/share/nginx/html
 
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port
 EXPOSE 8080
 
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
