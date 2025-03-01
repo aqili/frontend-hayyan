@@ -15,12 +15,8 @@ RUN npm install --legacy-peer-deps --verbose
 # Copy the rest of the application
 COPY . .
 
-# Try to build with more detailed output
-RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build || \
-    (echo "Build failed. Showing npm logs:" && \
-     cat npm-debug.log || true && \
-     cat /root/.npm/_logs/*-debug.log || true && \
-     exit 1)
+# Try to build with out more detailed output
+RUN npm run build
 
 # Production stage
 FROM nginx:alpine
