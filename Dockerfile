@@ -1,15 +1,31 @@
-FROM node:18-alpine AS build
+# Build stage
+FROM node:20-alpine as builder
 
 WORKDIR /app
-COPY package*.json /app/
 
-RUN yarn
-COPY . /app
+# Copy package files
+COPY package*.json ./
 
-RUN yarn build:prod
+# Install dependencies
+RUN npm ci
 
+# Copy project files
+COPY . .
+
+# Build the app
+RUN npm run build
+
+# Serve stage
 FROM nginx:alpine
-COPY dynamic-env.json /usr/share/nginx/html
-COPY nginx.conf  /etc/nginx/conf.d/default.conf
 
-COPY --from=build /app/dist/Hayaan /usr/share/nginx/html
+# Copy built assets
+COPY --from=builder /app/dist/frontend-hayyan/browser /usr/share/nginx/html
+
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port
+EXPOSE 8080
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
