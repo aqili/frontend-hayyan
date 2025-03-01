@@ -12,8 +12,8 @@ RUN npm install --legacy-peer-deps
 # Copy project files
 COPY . .
 
-# Build the app
-RUN npm run build --legacy-peer-deps
+# Build the app (removed the flag from build command)
+RUN npm run build || (echo "Build failed" && cat /app/.npm/_logs/*-debug.log && exit 1)
 
 # Serve stage
 FROM nginx:alpine
