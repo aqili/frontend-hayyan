@@ -1,4 +1,5 @@
 import { Environment } from '@abp/ng.core';
+import { Config } from './environment';
 
 const baseUrl = 'http://localhost:4200';
 
@@ -11,7 +12,7 @@ const oAuthConfig = {
   requireHttps: true,
 };
 
-export const environment = {
+export const environment: Config = {
   production: true,
   application: {
     baseUrl,

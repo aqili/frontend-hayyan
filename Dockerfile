@@ -15,8 +15,8 @@ RUN npm install --legacy-peer-deps --verbose
 # Copy the rest of the application
 COPY . .
 
-# Try to build with out more detailed output
-RUN npm run build
+# Try to build with more detailed output and increased memory
+RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
 # Production stage
 FROM nginx:alpine
