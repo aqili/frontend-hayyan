@@ -6,7 +6,7 @@
     "updateproxy": "abp generate-proxy -t ng",
     "generateproxy": "abp generate-proxy -t ng",
     "start": "ng serve",
-    "build": "ng build --configuration production",
+    "build": "ng build",
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
