@@ -1,0 +1,7 @@
+<div *ngFor="let item of experiments">
+  <h2>
+    {{ item.arabicTitle }}
+  </h2>
+  <div [innerHTML]="item.arabicDescription"></div>
+  <input type="button" (click)="openExperiment(item)" value="أبدأ الان" />
+</div>

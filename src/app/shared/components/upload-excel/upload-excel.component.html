@@ -1,0 +1,23 @@
+<!-- <div class="file-input">
+  <input
+    #fileInput
+    type="file"
+    accept=".xlsx"
+    (change)="onFileSelected($event)"
+    (click)="onclick($event)"
+
+  />
+</div> -->
+
+<div class="file-input">
+  <input
+    #fileInput
+    type="file"
+    accept=".xlsx"
+    (change)="onFileSelected($event)"
+    style="display: none"
+  />
+  <label (click)="fileInput.click()" class="custom-file-input">
+    {{ '::uploadexcel' | abpLocalization }}
+  </label>
+</div>

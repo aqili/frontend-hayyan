@@ -1,0 +1,23 @@
+<!-- <abp-loader-bar></abp-loader-bar>
+ -->
+
+<!-- <div><p style="color: red">{{currentUser|json}}</p></div> -->
+<!-- <div><button (click)="changeLang()">Change language</button></div>
+<div><button *ngIf="!customAuthService.hasValidAccessToken()" (click)="login()">Login</button></div>
+<div>
+  <button *ngIf="customAuthService.hasValidAccessToken()" (click)="customAuthService.logOut()">
+    LogOut
+  </button>
+</div>
+
+<div><a routerLink="/test"> Test</a></div>-->
+<!-- <div><a routerLink="/complete-reg"> complete reg</a></div>
+ -->
+<ngx-loading
+  [show]="loaderService.showLoader"
+  [config]="{ backdropBorderRadius: '3px',fullScreenBackdrop:true }"
+></ngx-loading>
+<!-- <abp-dynamic-layout></abp-dynamic-layout> -->
+<router-outlet> </router-outlet>
+
+<app-user-idle></app-user-idle>

@@ -1,0 +1,87 @@
+<div class="col-md-8">
+  <ng-container *ngIf="tableConfig?.hideSearch !== true">
+    <div class="searchbox-container">
+      <div class="searchbox module-view-searchbox">
+        <img src="../../../../assets/images/icons/search.png" alt="" />
+        <input
+          type="text"
+          class="form-control search-input"
+          [(ngModel)]="searchValue"
+          placeholder="{{ '::search' | abpLocalization }} {{ ' ...' }}"
+        />
+
+        <ng-select
+          #select
+          [items]="tableConfig?.searchColumnFilter"
+          (change)="onClickSearch()"
+          bindLabel="displayName"
+          [(ngModel)]="selectedFilter"
+        >
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            <span class="option-span">
+              {{ item.displayName }}
+            </span>
+          </ng-template>
+        </ng-select>
+      </div>
+      <button (click)="onClickSearch()" class="view-btn list-view">
+        {{ '::search' | abpLocalization }}
+      </button>
+    </div>
+  </ng-container>
+</div>
+<app-upload-excel
+  (uploadResponseEvent)="onRowActionClicked(ActionType.ExcelResponse, null)"
+  *ngIf="tableConfig?.uploadExcelApi"
+  [apiUrl]="tableConfig?.uploadExcelApi"
+></app-upload-excel>
+<a *ngIf="tableConfig?.pathExampleExcel" [href]="tableConfig?.pathExampleExcel">{{
+  '::donlowadexceltemplate' | abpLocalization
+}}</a>
+
+<ngx-datatable [rows]="tableData" [count]="totalCount" [list]="ListService" default>
+  <ngx-datatable-column [name]="'::Actions' | abpLocalization" [maxWidth]="150" [sortable]="false">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <div ngbDropdown container="body" class="d-inline-block">
+        <button
+          class="btn btn-primary btn-sm dropdown-toggle"
+          ngbDropdownToggle
+          aria-haspopup="true"
+          data-toggle="dropdown"
+        >
+          <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+        </button>
+
+        <div ngbDropdownMenu>
+          <ng-container *ngFor="let action of tableConfig?.rowActions">
+            <button
+              *ngIf="action.showOption(row)"
+              ngbDropdownItem
+              (click)="onRowActionClicked(action.actionType, row, action.otherFunction)"
+            >
+              {{ '::' + action.label | abpLocalization }}
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ng-container *ngFor="let col of tableConfig.columns">
+    <ngx-datatable-column [name]="'::' + col.title | abpLocalization" [prop]="col.dataProperty">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <ng-container [ngSwitch]="col.type">
+          <ng-container *ngSwitchCase="ColumnTypeEn.DateOnly">
+            {{ row[col.dataProperty] | date : 'dd/MM/yyyy' }}
+          </ng-container>
+          <ng-container *ngSwitchCase="ColumnTypeEn.CheckBox">
+            <input type="checkbox" [checked]="row[col.dataProperty]" disabled />
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            {{ row[col.dataProperty] }}
+          </ng-container>
+        </ng-container>
+      </ng-template>
+    </ngx-datatable-column>
+  </ng-container>
+</ngx-datatable>

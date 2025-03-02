@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@use './tailwind.css';
+@use './assets/layout/layout.scss';
+@use 'primeicons/primeicons.css';
+
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+html {
+  --surface-ground: #ffffff;
+}
+
+:root {
+  --surface-0: #ffffff;
+  --surface-50: #FAFAFA;
+  --surface-100: #F5F5F5;
+  /* Add other light theme variables as needed */
+}
+
+/* Override the media query */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Force the same light mode values */
+    --surface-0: #ffffff;
+    --surface-50: #FAFAFA;
+    --surface-100: #F5F5F5;
+    /* Continue with other variables */
+  }
+}

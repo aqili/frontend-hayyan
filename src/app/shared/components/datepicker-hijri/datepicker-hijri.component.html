@@ -1,0 +1,29 @@
+
+                      <h6 class="text-primary f-bold mb-3">
+                        {{ filedText | abpLocalization }}
+                      </h6>
+                      <div class="input-group">
+                        <input
+                          #datepicker="ngbDatepicker"
+                          class="form-control"
+                          name="datepicker"
+                          formControlName="control"
+                          [maxDate]="maxDate"
+                          (dateSelect)="onDateSelectFn()"
+                          ngbDatepicker
+                          (click)="datepicker.toggle()"
+                        />
+                        <div class="input-group-append">
+                          <button
+                            class="btn btn-outline-secondary"
+                            (click)="datepicker.toggle()"
+                            type="button"
+                          >
+                            <i
+                              class="fa fa-calendar"
+                              style="width: 1.2rem; height: 1rem; cursor: pointer"
+                            ></i>
+                          </button>
+                        </div>
+                      </div>
+

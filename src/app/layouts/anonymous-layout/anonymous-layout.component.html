@@ -1,0 +1,16 @@
+
+<app-header></app-header>
+ <div class="container">
+<xng-breadcrumb *ngIf="this.Router.url!='/'" class="mt-4 mb-2">
+  <ng-container
+    *xngBreadcrumbItem="let breadcrumb; let info = info; let first = first"
+  >
+  <i *ngIf="info" class="fa-duotone {{info}}"></i>
+
+    <ng-container *ngIf="!first">{{ breadcrumb |abpLocalization}}</ng-container>
+  </ng-container>
+</xng-breadcrumb>
+</div>
+<router-outlet> </router-outlet>
+
+<app-footer></app-footer>

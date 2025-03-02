@@ -1,0 +1,55 @@
+<main *ngIf="!success" class="mainContent">
+  <div class="container">
+    <div class="row mt-2">
+      <div class="col-md-5 m-auto">
+        <div class="login-form">
+          <h3 class="text-center">
+            {{ '::fld_ResetPassword_Activate' | abpLocalization }}
+          </h3>
+         
+          <div class="form-container p-4 mt-3 pb-0">
+            <div class="container">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-12 col-12">
+                    <div class="form-group">
+                      <label for="password">{{
+                        '::fld_organization_password' | abpLocalization
+                        }}</label>
+                      <input type="password" autocomplete="new-password" formControlName="password" class="form-control"
+                        placeholder="*********" />
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-12">
+                    <div class="form-group">
+                      <label for="confirmpassword">
+                        {{ '::fld_organization_password_confrim' | abpLocalization }}
+                      </label>
+                      <input formControlName="confirmpassword" autocomplete="new-password" type="password"
+                        class="form-control" placeholder="*********" />
+                    </div>
+                  </div>
+
+                 
+                  <div class="col-12">
+                    <div class="text-center mt-3">
+                      <button type="submit" class="btn btn-primary d-block mx-auto pt-3 pb-3 mt-5">
+                        {{ '::btn_ResetPassword_Activate' | abpLocalization }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div *ngIf="success" class="container">
+  <div class="register-form">
+    <img loading="lazy" src="assets/images/Success.svg" class="d-block mx-auto mt-5 mb-5" alt="" />
+    <p class="text-center success-msg">{{ '::Activated' | abpLocalization }}</p>
+  </div>
+</div>

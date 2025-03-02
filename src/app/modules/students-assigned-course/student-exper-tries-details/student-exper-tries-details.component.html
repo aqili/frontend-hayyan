@@ -1,0 +1,10 @@
+
+<div *ngIf="iframeUrl; else loading">
+    <iframe [src]="iframeUrl"   width="100%" height="600px"></iframe>
+  </div>
+  <ng-template #loading>
+    <p>Loading experiment...</p>
+  </ng-template>
+  <div *ngIf="errorMessage">
+    <p style="color: red;">{{ errorMessage }}</p>
+  </div>

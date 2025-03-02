@@ -1,0 +1,54 @@
+<div>
+  <abp-modal
+    centered="true"
+    scrollable="true"
+    size="Small"
+    [(visible)]="isModalStatusOpen"
+    [busy]="inProgress"
+    (disappear)="onCloseModel()"
+    [suppressUnsavedChangesWarning]="suppressUnsavedChangesWarning"
+  >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ng-template #abpHeader>
+        <h3>Add Experiment</h3>
+      </ng-template>
+
+      <ng-template #abpBody>
+        <div class="mt-2">
+          <label for="experiment-name">Name</label><span> * </span>
+          <input
+            type="text"
+            id="experiment-name"
+            class="form-control"
+            formControlName="name"
+            autofocus
+          />
+        </div>    
+
+
+        <label>
+          <input type="checkbox" id="subscribe" formControlName="isActive" />
+          IsActive
+        </label>
+        <div class="mt-2">
+          <label for="experiment-price">Description</label>
+          <input type="text" class="form-control" formControlName="description" />
+        </div>
+      </ng-template>
+
+      <ng-template #abpFooter>
+        <button type="button" class="btn btn-secondary" abpClose>
+          {{ '::Close' | abpLocalization }}
+        </button>
+
+        <button
+          (click)="onSubmit()"
+          class="btn btn-primary col-md-5 ml-2"
+          [disabled]="form.invalid || form.pristine"
+        >
+          {{ '::btn_Save' | abpLocalization }}
+        </button>
+      </ng-template>
+    </form>
+  </abp-modal>
+</div>
