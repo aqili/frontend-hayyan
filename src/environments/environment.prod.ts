@@ -1,4 +1,5 @@
 import { Environment } from '@abp/ng.core';
+import { INGXLoggerConfig, NgxLoggerLevel } from 'ngx-logger';
 
 const baseUrl = 'http://localhost:4200';
 
@@ -33,3 +34,15 @@ export const environment = {
     mergeStrategy: 'deepmerge'
   }
 } as Environment;
+
+export const Config = {
+  loggerConfig: {
+    level: NgxLoggerLevel.ERROR,
+    serverLogLevel: NgxLoggerLevel.ERROR,
+    enableSourceMaps: false,
+  } as INGXLoggerConfig,
+  sessionTimeOut: {
+    sessionTimeMinute: 90,
+    sessionTimeAttentionMinute: 1,
+  },
+};
