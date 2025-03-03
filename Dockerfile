@@ -16,22 +16,20 @@ COPY . .
 RUN yarn build:prod
 
 # Production stage
-FROM nginx:alpine
+FROM node:18-alpine
+
+WORKDIR /app
 
 # Copy built assets from build stage
-COPY --from=build /app/dist/Hayaan /usr/share/nginx/html
+COPY --from=build /app/dist/Hayaan ./dist/Hayaan
+COPY --from=build /app/server.js ./
+COPY --from=build /app/package.json ./
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf.template
-
-# Create script to replace PORT variable
-RUN echo '#!/bin/sh\n\
-envsubst "\$PORT" < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf\n\
-nginx -g "daemon off;"' > /docker-entrypoint.sh && \
-chmod +x /docker-entrypoint.sh
+# Install production dependencies
+RUN yarn install --production
 
 # Expose port 8080
 EXPOSE 8080
 
-# Start nginx using the entrypoint script
-CMD ["/docker-entrypoint.sh"]
+# Start the server
+CMD ["node", "server.js"]
