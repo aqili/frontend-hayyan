@@ -22,10 +22,16 @@ FROM nginx:alpine
 COPY --from=build /app/dist/Hayaan /usr/share/nginx/html
 
 # Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf.template
 
-# Expose port 80
-EXPOSE 80
+# Create script to replace PORT variable
+RUN echo '#!/bin/sh\n\
+envsubst "\$PORT" < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf\n\
+nginx -g "daemon off;"' > /docker-entrypoint.sh && \
+chmod +x /docker-entrypoint.sh
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Expose port 8080
+EXPOSE 8080
+
+# Start nginx using the entrypoint script
+CMD ["/docker-entrypoint.sh"]
