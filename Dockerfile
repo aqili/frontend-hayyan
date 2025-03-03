@@ -16,20 +16,14 @@ COPY . .
 RUN yarn build:prod
 
 # Production stage
-FROM node:18-alpine
-
-WORKDIR /app
+FROM nginx:alpine
 
 # Copy built assets from build stage
-COPY --from=build /app/dist/Hayaan ./dist/Hayaan
-COPY --from=build /app/server.js ./
-COPY --from=build /app/package.json ./
+COPY --from=build /app/dist/Hayaan /usr/share/nginx/html
 
-# Install production dependencies
-RUN yarn install --production
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 8080
-EXPOSE 8080
 
-# Start the server
-CMD ["node", "server.js"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
