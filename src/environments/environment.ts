@@ -2,7 +2,7 @@ import { Environment } from '@abp/ng.core';
 
 import { INGXLoggerConfig, NgxLoggerLevel } from 'ngx-logger';
 
-const baseUrl = 'http://localhost:4200';
+const baseUrl = 'https://hayyan-web-9715979060.asia-south1.run.app/';
 
 const oAuthConfig = {
   issuer: 'https://api-hayyan.el.r.appspot.com/',
