@@ -123,7 +123,7 @@ import Aura from '@primeng/themes/aura';
             theme: {
                 preset: Aura,
                 options: {
-                  darkModeSelector: false || 'none'
+                  darkModeSelector: false || 'none',
               }
             }
         })

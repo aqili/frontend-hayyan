@@ -15,17 +15,24 @@ export class HeaderComponent extends BaseComponent {
       this.IsArabic ? '/assets/branding/css/rtl/style.css' : '/assets/branding/css/ltr/style.css'
     )
   );
-  constructor(public sessionState: SessionStateService, private lazyLoadService: LazyLoadService ,private authService: AuthService) {
+  get hasLoggedIn(): boolean {
+    return this.authService.isAuthenticated;
+  }
+  constructor(public sessionState: SessionStateService, private lazyLoadService: LazyLoadService , private authService: AuthService) {
     super();
   }
   changeLang() {
     this.sessionState.setLanguage(this.sessionState.getLanguage() == 'ar' ? 'en' : 'ar');
     location.reload();
+
   }
 
   login() {
-    console.log('Hi from Ts')
-    debugger;
-    this.authService.navigateToLogin();
+    // this.authService.navigateToLogin();
+    this.Router.navigateByUrl('/dashboard');
   }
+  logout() {
+    this.authService.logout();
+  }
+
 }

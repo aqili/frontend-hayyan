@@ -86,10 +86,12 @@ header .menu-item {
 
 
 header li {
-  margin: 0px 10px !important;
+  margin: 0px 5px !important;
+  cursor: pointer;
 }
 
 header .menu-item a {
+  
 }
 
 /*Header End*/
@@ -611,7 +613,7 @@ footer a {
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-    width: 100%;
+    /* width: 100%; */
     padding: 12px 16px;
     border-radius: 4px;
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05);
@@ -1088,8 +1090,8 @@ footer a {
 
     button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus, body .wp-block-file .wp-block-file__button:hover, body .wp-block-file .wp-block-file__button:focus, .woocommerce-js a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover, .woocommerce #respond input#submit:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover, [CLASS*="wc-block"] button:hover, .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping):hover, .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout:hover, .woocommerce button.button.alt.disabled.wc-variation-selection-needed:hover, [CLASS*="wc-block"] .wc-block-components-button:hover, [CLASS*="wc-block"] .wc-block-components-button:focus {
       color: #ffffff;
-      background-color: var(--ast-global-color-1);
-      border-color: var(--ast-global-color-1);
+      /* background-color: var(--ast-global-color-1);
+      border-color: var(--ast-global-color-1); */
     }
 
     form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button.has-icon {

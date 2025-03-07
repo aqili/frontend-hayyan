@@ -108,3 +108,26 @@
         }
     }
 }
+
+html[dir="rtl"] {
+  .layout-main-container {
+    margin-left: inherit !important;
+    margin-right: 22rem;
+}
+
+.layout-static-inactive {
+  .layout-sidebar {
+      transform: translateX(100%) !important;
+      left: inherit !important;
+      right: 0;
+  }
+
+  .layout-main-container {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: inherit;
+      padding-right: 2rem;
+  }
+}
+
+}

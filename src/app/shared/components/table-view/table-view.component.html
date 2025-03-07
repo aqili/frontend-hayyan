@@ -1,21 +1,21 @@
-<div class="col-md-8">
+<div class="col-12 p-2 mb-3">
   <ng-container *ngIf="tableConfig?.hideSearch !== true">
-    <div class="searchbox-container">
-      <div class="searchbox module-view-searchbox">
-        <img src="../../../../assets/images/icons/search.png" alt="" />
+    <div class="d-flex gap-3">
+      <div class="d-flex gap-2">
         <input
           type="text"
           class="form-control search-input"
           [(ngModel)]="searchValue"
           placeholder="{{ '::search' | abpLocalization }} {{ ' ...' }}"
         />
-
         <ng-select
           #select
           [items]="tableConfig?.searchColumnFilter"
           (change)="onClickSearch()"
           bindLabel="displayName"
+          placeholder="{{ '::searchBy' | abpLocalization }}"
           [(ngModel)]="selectedFilter"
+          [ngStyle]="{ 'min-width': '300px'}"
         >
           <ng-template ng-option-tmp let-item="item" let-index="index">
             <span class="option-span">
@@ -24,7 +24,7 @@
           </ng-template>
         </ng-select>
       </div>
-      <button (click)="onClickSearch()" class="view-btn list-view">
+      <button (click)="onClickSearch()" class="btn btn-primary view-btn list-view">
         {{ '::search' | abpLocalization }}
       </button>
     </div>

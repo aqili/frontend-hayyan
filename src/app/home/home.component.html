@@ -1,48 +1,26 @@
-<app-header></app-header>
-
-<button class="fa fa-sign-in" class="px-4 btn btn-primary mb-4" role="button" (click)="login()">
-  {{ 'AbpAccount::Login' | abpLocalization }}
-
-</button> 
-  
-
-
-<div id="content" class="site-content">
-  <div class="ast-container">
-    <div data-elementor-type="wp-page" data-elementor-id="41" class="elementor elementor-41">
-      <div
-        class="elementor-element elementor-element-586d073 e-flex e-con-boxed e-con e-parent"
-        data-id="586d073"
-        data-element_type="container"
-      >
-        <div class="e-con-inner">
-          <div
-            class="elementor-element elementor-element-c31170b elementor-widget elementor-widget-shortcode"
-            data-id="c31170b"
-            data-element_type="widget"
-            data-widget_type="shortcode.default"
-          >
-            <div class="elementor-widget-container">
-              <div class="elementor-shortcode">
-                <!-- slidder -->
-
-                @if (images) {
-                <ngb-carousel [interval]="1000" [pauseOnHover]="false">
-                  <ng-template ngbSlide *ngFor="let image of images; let i = index">
-                    <img [src]="image" class="d-block w-100" alt="Slide {{ i + 1 }}" />
-
-                    <div class="carousel-caption">
-                      <h3>Slide {{ i + 1 }} label</h3>
-                      <p>Description for slide {{ i + 1 }}.</p>
-                    </div>
-                  </ng-template>
-                </ngb-carousel>
-                }
-              </div>
-            </div>
-          </div>
+<div class="bg-white">
+  <app-header></app-header>
+  @if (images) {
+    <p-carousel
+      [value]="images"
+      [numVisible]="1"
+      [numScroll]="1"
+      orientation="horizontal"
+      verticalViewPortHeight="700px"
+      contentClass="flex items-center"
+      [autoplayInterval]="2000"
+      [showNavigators]="false"
+    >
+      <ng-template let-image #item>
+        <div class="relative mx-auto">
+          <img [src]="image" [alt]="'image'" class="w-full" />
         </div>
-      </div>
+      </ng-template>
+    </p-carousel>
+  }
+
+  <div id="content" class="site-content">
+    <div data-elementor-type="wp-page" data-elementor-id="41" class="elementor elementor-41">
       <div
         class="elementor-element elementor-element-bba50c8 e-grid elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile e-con-boxed e-con e-parent"
         data-id="bba50c8"
@@ -827,7 +805,6 @@
       </div>
     </div>
   </div>
-  <!-- ast-container -->
+  <!-- #content -->
+  <app-footer></app-footer>
 </div>
-<!-- #content -->
-<app-footer></app-footer>

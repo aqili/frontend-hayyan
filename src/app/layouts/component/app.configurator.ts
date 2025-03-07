@@ -103,6 +103,7 @@ export class AppConfigurator {
     ];
 
     ngOnInit() {
+      this.layoutService.layoutConfig.update((state) => ({ ...state, primary: 'blue' }));
         if (isPlatformBrowser(this.platformId)) {
             this.onPresetChange(this.layoutService.layoutConfig().preset);
         }

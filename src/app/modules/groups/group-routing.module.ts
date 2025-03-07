@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: '',
         component: GroupComponent,
-       canActivate: [authGuard, permissionGuard],
+      canActivate: [authGuard, permissionGuard],
       }
     ]
    },

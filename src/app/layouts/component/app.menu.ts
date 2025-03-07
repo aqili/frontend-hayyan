@@ -23,16 +23,18 @@ export class AppMenu {
     this.model = [
       {
         label: 'Home',
-        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }],
+        items: [
+          {
+            label: 'Main Site',
+            icon: 'pi pi-fw pi-home',
+            routerLink: ['/'],
+          },
+          { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard'] },
+        ],
       },
       {
         label: 'Pages',
         items: [
-          {
-            label: '::Menu:Books',
-            icon: 'fas fa-book',
-            routerLink: ['/books'],
-          },
           {
             label: '::Menu:Groups',
             icon: 'fas fa-users',

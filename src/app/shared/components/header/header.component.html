@@ -38,12 +38,12 @@
                        
                       <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"><a href="#" class="hfe-menu-item">تواصل معنا</a></li>
                       
-                        <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu">
-                          <a class="hfe-menu-item" asp-area="" asp-controller="Account" asp-action="Logout">تسجيل خروج</a>
+                        <li *ngIf="hasLoggedIn" id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu">
+                          <a  class="hfe-menu-item" (click)="logout()" asp-controller="Account" asp-action="Logout">تسجيل خروج</a>
                         </li>
                      
                         <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu">
-                          <a class="hfe-menu-item"  (click)="login()" >تسجيل الدخول</a>
+                          <a class="hfe-menu-item" (click)="login()">تسجيل الدخول</a>
                         </li>								
                     </ul>
                   </nav>
