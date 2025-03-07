@@ -64,3 +64,5 @@ package-lock.json
 /.vs/VSWorkspaceState.json
 /.vs/frontend-hayyan/FileContentIndex/6d6098e0-badc-435e-bf84-dd103d2ccc0c.vsidx
 /.vs/frontend-hayyan/v17/DocumentLayout.json
+/.vs/frontend-hayyan/FileContentIndex/0e92efaf-379d-46f0-95b9-c24d4d7f94a4.vsidx
+/src/app/bookt/bookt-routing.module.ts
