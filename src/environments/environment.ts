@@ -1,5 +1,4 @@
 import { Environment } from '@abp/ng.core';
-
 import { INGXLoggerConfig, NgxLoggerLevel } from 'ngx-logger';
 
 const baseUrl = 'https://hayyan-web-9715979060.asia-south1.run.app';
@@ -14,7 +13,7 @@ const oAuthConfig = {
 };
 
 export const environment = {
-  production: false,
+  production: true,
   application: {
     baseUrl,
     name: 'Hayaan',
@@ -30,12 +29,17 @@ export const environment = {
       rootNamespace: 'AbpAccountPublic',
     },
   },
+  remoteEnv: {
+    url: '/getEnvConfig',
+    mergeStrategy: 'deepmerge'
+  }
 } as Environment;
+
 export const Config = {
   loggerConfig: {
-    level: NgxLoggerLevel.TRACE,
-    serverLogLevel: NgxLoggerLevel.OFF,
-    enableSourceMaps: true,
+    level: NgxLoggerLevel.ERROR,
+    serverLogLevel: NgxLoggerLevel.ERROR,
+    enableSourceMaps: false,
   } as INGXLoggerConfig,
   sessionTimeOut: {
     sessionTimeMinute: 90,
