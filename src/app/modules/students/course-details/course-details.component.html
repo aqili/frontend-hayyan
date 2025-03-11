@@ -3,5 +3,5 @@
     {{ item.arabicTitle }}
   </h2>
   <div [innerHTML]="item.arabicDescription"></div>
-  <input type="button" (click)="openExperiment(item)" value="أبدأ الان" />
+  <input type="button" (click)="openExperiment(item)" value="{{'::StartNow' | abpLocalization}}" />
 </div>

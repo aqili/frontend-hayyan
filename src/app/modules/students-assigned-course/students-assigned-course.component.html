@@ -4,9 +4,9 @@
       <h5 class="card-title">{{ course.fullName }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ course.courseName }}</h6>
       <p class="card-text" (click)="openCourseDetails(course)">
-        Start Date: {{ course.courseStartDate }}<br />
-        End Date: {{ course.courseEndDate }}<br />
-        Group: {{ course.groupName }}
+        {{'::StartDate' | abpLocalization }}: {{ course.courseStartDate }}<br />
+        {{'::EndDate' | abpLocalization}}: {{ course.courseEndDate }}<br />
+        {{'::Group' | abpLocalization }}: {{ course.groupName }}
       </p>
     </div>
   </div>

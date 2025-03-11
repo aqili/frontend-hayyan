@@ -20,7 +20,6 @@ export class StatsWidget extends BaseModalComponent implements OnInit {
         debugger;
             this.Service.getDashboard(
             ).subscribe((arg: ResponseData<DashboardModel>) => {
-                debugger;
               this.hideIntervalLoader();
         
               if (arg.isValid) {

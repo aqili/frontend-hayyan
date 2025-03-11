@@ -91,7 +91,7 @@ header li {
 }
 
 header .menu-item a {
-  
+
 }
 
 /*Header End*/
@@ -116,7 +116,6 @@ footer a {
 /*Footer End*/
 /*BG*/
 .home-bg {
-  background-image: url('./assets/wp-content/uploads/2024/11/Ellipse-8325.png'), url('./assets/wp-content/uploads/2024/11/Ellipse-8324.png');
   background-repeat: no-repeat;
   background-position: top left, bottom right;
   background-size: 100px 100px, 100px 100px; /* Adjust size as needed */

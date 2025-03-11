@@ -10,12 +10,12 @@
   >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <ng-template #abpHeader>
-        <h3>Add Experiment</h3>
+        <h3>{{ '::AddExperiment' | abpLocalization }}</h3>
       </ng-template>
 
       <ng-template #abpBody>
         <div class="mt-2">
-          <label for="experiment-name">Name</label><span> * </span>
+          <label for="experiment-name">{{ '::Name' | abpLocalization }}</label><span> * </span>
           <input
             type="text"
             id="experiment-name"
@@ -31,7 +31,7 @@
           IsActive
         </label>
         <div class="mt-2">
-          <label for="experiment-price">Description</label>
+          <label for="experiment-price">{{ '::Description' | abpLocalization }}</label>
           <input type="text" class="form-control" formControlName="description" />
         </div>
       </ng-template>

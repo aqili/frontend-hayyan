@@ -1,4 +1,5 @@
 import { Environment } from '@abp/ng.core';
+
 import { INGXLoggerConfig, NgxLoggerLevel } from 'ngx-logger';
 
 const baseUrl = 'https://hayyan-web-9715979060.asia-south1.run.app';
@@ -29,7 +30,6 @@ export const environment = {
       rootNamespace: 'AbpAccountPublic',
     },
   },
-
 } as Environment;
 
 export const Config = {

@@ -10,12 +10,12 @@
   >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <ng-template #abpHeader>
-        <h3>Add Course</h3>
+        <h3>{{'::AddCourse' | abpLocalization }}</h3>
       </ng-template>
 
       <ng-template #abpBody>
         <div class="mt-2">
-          <label for="course-name">Name</label><span> * </span>
+          <label for="course-name">{{ '::Name' | abpLocalization }}</label><span> * </span>
           <input
             type="text"
             id="course-name"
@@ -25,7 +25,7 @@
           />
         </div>
         <div class="mt-2">
-          <label>startDate</label><span> * </span>
+          <label>{{ '::StartDate' | abpLocalization }}</label><span> * </span>
           <input
             #datepicker="ngbDatepicker"
             class="form-control"
@@ -37,7 +37,7 @@
         </div>
 
         <div class="mt-2">
-          <label>endDate</label><span> * </span>
+          <label>{{ '::EndDate' | abpLocalization }}</label><span> * </span>
           <input
             #endDatedatepicker="ngbDatepicker"
             class="form-control"
@@ -52,11 +52,11 @@
           IsActive
         </label>
         <div class="mt-2">
-          <label for="course-price">Description</label>
+          <label for="course-price">{{ '::Description' | abpLocalization }}</label>
           <input type="text" class="form-control" formControlName="description" />
         </div>
         <div class="mt-2">
-          <label for="book-type">Experiments</label>
+          <label for="book-type">{{'::Menu:Experiments' | abpLocalization}}</label>
           <ng-select
             [items]="experiments"
             bindLabel="name"

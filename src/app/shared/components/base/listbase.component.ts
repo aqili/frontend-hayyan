@@ -56,7 +56,7 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
         this.hideIntervalLoader();
 
         this.onErrorFailed(err);
-      }
+      },
     );
   }
   getList(dto): Observable<any> {
@@ -171,7 +171,7 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
         this.hideIntervalLoader();
 
         this.onErrorFailed(err);
-      }
+      },
     );
   }
   protected ActiveByParams<T, E>(item: T = null) {
@@ -192,7 +192,7 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
         this.hideIntervalLoader();
 
         this.onErrorFailed(err);
-      }
+      },
     );
   }
   protected InActiveByParams<T, E>(item: T = null) {
@@ -213,7 +213,7 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
         this.hideIntervalLoader();
 
         this.onErrorFailed(err);
-      }
+      },
     );
   }
   protected InSendActiveByParams<T, E>(item: T = null) {
@@ -234,18 +234,19 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
         this.hideIntervalLoader();
 
         this.onErrorFailed(err);
-      }
+      },
     );
   }
 
   onSearch(event) {
-    debugger;
-    this.someFilterValue = Object.assign({}, this.someFilterValue, {
-      columnName: event.columnName,
-      columnValue: event.columnValue,
-    });
+    if (!this.isEmpty(event?.columnValue) && !this.isEmpty(event?.columnName)) {
+      this.someFilterValue = Object.assign({}, this.someFilterValue, {
+        columnName: event.columnName,
+        columnValue: event.columnValue,
+      });
 
-    this.ListService.page = 0;
-    this.refreshData();
+      this.ListService.page = 0;
+      this.refreshData();
+    }
   }
 }

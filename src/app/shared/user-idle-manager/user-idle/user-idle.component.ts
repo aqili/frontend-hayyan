@@ -41,7 +41,6 @@ export class UserIdleComponent implements OnInit {
       let min = 0;
       if (seconds >= 60) {
         min = Math.trunc(seconds / 60);
-        console.log(min);
         seconds -= min * 60;
       }
 

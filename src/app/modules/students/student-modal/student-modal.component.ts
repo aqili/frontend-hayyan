@@ -29,8 +29,8 @@ export class StudentModalComponent extends BaseModalComponent implements OnInit 
   }
   protected buildForm(): void {
     this.form = this.FormBuilder.group({
-      firstName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(200)]],
-      lastName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(200)]],
+      firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(200)]],
+      lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(200)]],
       email: [
         '',
         [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(200)],

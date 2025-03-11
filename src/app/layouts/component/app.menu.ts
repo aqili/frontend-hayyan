@@ -51,12 +51,12 @@ export class AppMenu {
             routerLink: ['/experiments'],
           },
           {
-            label: '::Menu:instructors',
+            label: '::Menu:Instructors',
             icon: 'fas fa-chalkboard-teacher',
             routerLink: ['/instructors'],
           },
           {
-            label: '::Menu:students',
+            label: '::Menu:Students',
             icon: 'fas fa-user-graduate',
             routerLink: ['/students'],
           },

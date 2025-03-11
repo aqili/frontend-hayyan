@@ -43,13 +43,13 @@ function configureRoutes(routes: RoutesService) {
       },
       {
         path: '/instructors',
-        name: '::Menu:instructors',
+        name: '::Menu:Instructors',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
       },
       {
         path: '/students',
-        name: '::Menu:students',
+        name: '::Menu:Students',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
       },
@@ -62,7 +62,7 @@ function configureRoutes(routes: RoutesService) {
       },
       {
         path: '/student-courses',
-        name: '::Menu:studentCourses',
+        name: '::Menu:StudentCourses',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
       },

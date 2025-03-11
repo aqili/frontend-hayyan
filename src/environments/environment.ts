@@ -1,10 +1,11 @@
 import { Environment } from '@abp/ng.core';
+
 import { INGXLoggerConfig, NgxLoggerLevel } from 'ngx-logger';
 
-const baseUrl = 'https://hayyan-web-9715979060.asia-south1.run.app';
+const baseUrl = 'http://localhost:4200';
 
 const oAuthConfig = {
-  issuer: 'https://api-hayyan.el.r.appspot.com/',
+  issuer: 'https://localhost:44388/',
   redirectUri: baseUrl,
   clientId: 'Hayaan_App',
   responseType: 'code',
@@ -13,7 +14,7 @@ const oAuthConfig = {
 };
 
 export const environment = {
-  production: true,
+  production: false,
   application: {
     baseUrl,
     name: 'Hayaan',
@@ -21,22 +22,20 @@ export const environment = {
   oAuthConfig,
   apis: {
     default: {
-      url: 'https://api-hayyan.el.r.appspot.com',
+      url: 'https://localhost:44388',
       rootNamespace: 'Hayaan',
     },
     AbpAccountPublic: {
       url: oAuthConfig.issuer,
       rootNamespace: 'AbpAccountPublic',
     },
-  }
-
+  },
 } as Environment;
-
 export const Config = {
   loggerConfig: {
-    level: NgxLoggerLevel.ERROR,
-    serverLogLevel: NgxLoggerLevel.ERROR,
-    enableSourceMaps: false,
+    level: NgxLoggerLevel.TRACE,
+    serverLogLevel: NgxLoggerLevel.OFF,
+    enableSourceMaps: true,
   } as INGXLoggerConfig,
   sessionTimeOut: {
     sessionTimeMinute: 90,

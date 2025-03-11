@@ -27,7 +27,7 @@ export class GroupModalComponent extends BaseModalComponent implements OnInit {
   }
   protected buildForm(): void {
     this.form = this.FormBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(200)]],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(200)]],
       description: [null, Validators.maxLength(500)],
       studentIds: [],
     });

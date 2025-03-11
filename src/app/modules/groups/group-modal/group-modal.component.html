@@ -10,12 +10,12 @@
   >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <ng-template #abpHeader>
-        <h3>Add Group</h3>
+        <h3>{{ '::AddGroup' | abpLocalization }}</h3>
       </ng-template>
 
       <ng-template #abpBody>
         <div class="mt-2">
-          <label for="group-name">Name</label><span> * </span>
+          <label for="group-name">{{ '::Name' | abpLocalization }}</label><span> * </span>
           <input
             type="text"
             id="group-name"
@@ -26,11 +26,11 @@
         </div>
 
         <div class="mt-2">
-          <label for="group-price">Description</label>
+          <label for="group-price">{{ '::Description' | abpLocalization }}</label>
           <input type="text" class="form-control" formControlName="description" />
         </div>
         <div class="mt-2">
-          <label for="book-type">Students</label>
+          <label for="book-type">{{ '::Menu:Students' | abpLocalization }}</label>
           <ng-select
             [items]="students"
             bindLabel="fullName"

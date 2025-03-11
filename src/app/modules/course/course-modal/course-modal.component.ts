@@ -49,7 +49,7 @@ export class CourseModalComponent extends BaseModalComponent implements OnInit {
       },
       error => {
         console.error(error);
-      }
+      },
     );
     if (this.courseId) this.getByParams(this.courseId);
   }
@@ -64,7 +64,7 @@ export class CourseModalComponent extends BaseModalComponent implements OnInit {
   protected buildForm(): void {
     this.form = this.FormBuilder.group(
       {
-        name: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(200)]],
+        name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(200)]],
         description: [null, Validators.maxLength(500)],
         startDate: [
           this.selectedCourse.startDate ? new Date(this.selectedCourse.startDate) : null,
@@ -79,7 +79,7 @@ export class CourseModalComponent extends BaseModalComponent implements OnInit {
         groupId: [null, Validators.required],
         instractorId: [null, Validators.required],
       },
-      { validators: dateRangeValidator('startDate', 'endDate') }
+      { validators: dateRangeValidator('startDate', 'endDate') },
     );
   }
   protected save(): Promise<ResponseData<CourseDto>> {
