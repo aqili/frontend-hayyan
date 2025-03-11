@@ -1,6 +1,7 @@
 import { AuthService } from '@abp/ng.core';
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,38 +9,56 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   responsiveOptions: any[];
 
   get hasLoggedIn(): boolean {
     return this.authService.isAuthenticated;
   }
-  images: string[] = [
-    './assets/wp-content/uploads/2024/12/abstract-digital-network-with-hexagons-1.png',
-    './assets/wp-content/uploads/2024/12/enhance-your-product-display-use-purple-glass-dark-background-concept-product-photography-dark-background-purple-glass-enhancing-displays-1-1.png',
-    './assets/wp-content/uploads/2024/12/scientist-is-working-microscope-1.png',
+  images: { src: string; text: string }[] = [
+    {
+      src: './assets/wp-content/uploads/2home.png',
+      text: 'Abstract Digital Network',
+    },
+    {
+      src: './assets/wp-content/uploads/1home.png',
+      text: 'Product Display with Purple Glass',
+    },
+    {
+      src: './assets/wp-content/uploads/3home.png',
+      text: 'Scientist Working with Microscope',
+    },
   ];
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit(): void {
     this.responsiveOptions = [
       {
-          breakpoint: '1024px',
-          numVisible: 3,
-          numScroll: 3
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3,
       },
       {
-          breakpoint: '768px',
-          numVisible: 2,
-          numScroll: 2
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2,
       },
       {
-          breakpoint: '560px',
-          numVisible: 1,
-          numScroll: 1
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
+    /*   this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        const element = document.getElementById(fragment);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
-  ];
-
+    }); */
   }
   login() {
     debugger;
@@ -47,7 +66,6 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-
     this.authService.logout();
   }
 }

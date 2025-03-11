@@ -2,9 +2,9 @@ import { authGuard, permissionGuard } from '@abp/ng.core';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StudentExperTriesDetailsComponent } from './modules/students-assigned-course/student-exper-tries-details/student-exper-tries-details.component';
 import { AppLayout } from '@layouts/component/app.layout';
 import { Dashboard } from './pages/dashboard/dashboard';
-import { StudentExperTriesDetailsComponent } from './modules/students-assigned-course/student-exper-tries-details/student-exper-tries-details.component';
 
 const routes: Routes = [
 
@@ -54,14 +54,22 @@ const routes: Routes = [
     loadChildren: () => import('./modules/students/students.module').then(m => m.StudentModule),
   },
   {
+
+    path: 'auth',
+
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
+
+  },
+  {
     path: 'dashboard',
-    component: AppLayout,
-    children: [
-      {
-        path: '',
-        component: Dashboard
-      }
-    ]
+    //component: AppLayout,
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+    // children: [
+    //   {
+    //     path: '',
+    //     component: Dashboard
+    //   }
+    // ]
   }
 ];
 

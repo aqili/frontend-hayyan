@@ -22,6 +22,7 @@ import { CustomAuthService } from '../../service/custom-auth.service';
 import { LoaderService } from '../../service/loader.service';
 import { MyAttachmentsService } from '../add-attachment/types/my.attachments.service';
 import { ActionType, ColumnTypeEnum } from 'src/app/core/models/table-config-model';
+import { UserType } from '@proxy/domain/shared/enums';
 
 @Component({
   template: ``,
@@ -376,8 +377,9 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
       queryParams: { query: this.EncryptQuery(queryParams) },
     });
   }
-}
-function AutoUnsub() {
+
+  
+AutoUnsub() {
   return function (constructor) {
     const orig = constructor.prototype.ngOnDestroy;
     constructor.prototype.ngOnDestroy = function () {
@@ -390,4 +392,18 @@ function AutoUnsub() {
       orig.apply();
     };
   };
+}
+
+isAdmin():boolean{
+  return this.UserService.checkCurrentUserInRole(UserType[UserType.admin]);
+}
+
+isStudent():boolean{
+  return this.UserService.checkCurrentUserInRole(UserType[UserType.student]);
+}
+
+isInstructor():boolean{
+  return this.UserService.checkCurrentUserInRole(UserType[UserType.Instractor]);
+}
+
 }

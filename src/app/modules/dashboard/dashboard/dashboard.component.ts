@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BaseModalComponent } from '@base/base-modal.component';
-import { DashboardModel, DashboardService } from '@proxy/dashboard';
+import { DashboardService } from '@proxy/dashboard';
+import { DashboardModel } from '@proxy/dashboard/models';
 import { ResponseData } from '@proxy/domain/shared/common';
 
 @Component({
-    standalone: true,
-    selector: 'app-stats-widget',
-    imports: [CommonModule],
-    templateUrl: './statswidget.html'
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.scss'
 })
-export class StatsWidget extends BaseModalComponent implements OnInit {
+export class DashboardComponent  extends BaseModalComponent implements OnInit {
      get Service(): DashboardService {
         return this.getByInjector(DashboardService);
       }

@@ -1662,6 +1662,32 @@
             }
           }
         },
+        "Hayaan.Dashboard.DashboardAppService": {
+          "controllerName": "Dashboard",
+          "controllerGroupName": "Dashboard",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Hayaan.Dashboard.DashboardAppService",
+          "interfaces": [],
+          "actions": {
+            "GetDashboard": {
+              "uniqueName": "GetDashboard",
+              "name": "GetDashboard",
+              "httpMethod": "GET",
+              "url": "api/app/dashboard/dashboard",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Dashboard.DashboardModel>",
+                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Dashboard.DashboardModel>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Hayaan.Dashboard.DashboardAppService"
+            }
+          }
+        },
         "Hayaan.Experiments.ExperimentAppService": {
           "controllerName": "Experiment",
           "controllerGroupName": "Experiment",
@@ -6280,6 +6306,99 @@
           "jsonName": null,
           "type": "[Hayaan.Courses.StudentAssignedCoursesDto]",
           "typeSimple": "[Hayaan.Courses.StudentAssignedCoursesDto]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Hayaan.Dashboard.DashboardModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "students",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "instructors",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "courses",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "experiments",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "assingedExperiments",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "groups",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "userType",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

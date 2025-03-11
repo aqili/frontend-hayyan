@@ -16,13 +16,13 @@ function configureRoutes(routes: RoutesService) {
         order: 1,
         layout: eLayoutType.application,
       },
-      {
-        path: '/books',
-        name: '::Menu:Books',
-        iconClass: 'fas fa-book',
-        layout: eLayoutType.application,
-        requiredPolicy: 'Hayaan.Books',
-      },
+      // {
+      //   path: '/books',
+      //   name: '::Menu:Books',
+      //   iconClass: 'fas fa-book',
+      //   layout: eLayoutType.application,
+      //   requiredPolicy: 'Hayaan.Books',
+      // },
       {
         path: '/groups',
         name: '::Menu:Groups',

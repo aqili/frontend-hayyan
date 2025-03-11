@@ -8,12 +8,17 @@
       orientation="horizontal"
       verticalViewPortHeight="700px"
       contentClass="flex items-center"
-      [autoplayInterval]="2000"
+      [autoplayInterval]="6000"
       [showNavigators]="false"
     >
       <ng-template let-image #item>
         <div class="relative mx-auto">
-          <img [src]="image" [alt]="'image'" class="w-full" />
+          <img [src]="image.src" [alt]="'image'" class="w-full" />
+          <p
+            class="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-50 p-4 rounded"
+          >
+            {{ image.text }}
+          </p>
         </div>
       </ng-template>
     </p-carousel>
@@ -180,6 +185,7 @@
         data-element_type="container"
       >
         <div
+          id="section2"
           class="elementor-element elementor-element-0987e78 e-con-full e-flex e-con e-child"
           data-id="0987e78"
           data-element_type="container"
@@ -392,6 +398,7 @@
         </div>
       </div>
       <div
+        id="section1"
         class="elementor-element elementor-element-7bb3f7e e-con-full home-bg-2 e-flex e-con e-parent"
         data-id="7bb3f7e"
         data-element_type="container"
@@ -422,6 +429,7 @@
           </div>
         </div>
         <div
+          id="section2"
           class="elementor-element elementor-element-2a5c936 e-con-full e-flex e-con e-child"
           data-id="2a5c936"
           data-element_type="container"
@@ -561,6 +569,7 @@
         </div>
       </div>
       <div
+        id="section3"
         class="elementor-element elementor-element-c54b376 e-con-full e-flex e-con e-parent"
         data-id="c54b376"
         data-element_type="container"
