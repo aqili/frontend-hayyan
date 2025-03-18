@@ -16,13 +16,6 @@ function configureRoutes(routes: RoutesService) {
         order: 1,
         layout: eLayoutType.application,
       },
-      // {
-      //   path: '/books',
-      //   name: '::Menu:Books',
-      //   iconClass: 'fas fa-book',
-      //   layout: eLayoutType.application,
-      //   requiredPolicy: 'Hayaan.Books',
-      // },
       {
         path: '/groups',
         name: '::Menu:Groups',
@@ -62,7 +55,13 @@ function configureRoutes(routes: RoutesService) {
       },
       {
         path: '/student-courses',
-        name: '::Menu:StudentCourses',
+        name: '::Menu:StudentCourses', 
+        iconClass: 'fas fa-book',
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/history-experiment',
+        name: '::Menu:historyExperiments',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
       },

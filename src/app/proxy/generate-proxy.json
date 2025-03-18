@@ -873,6 +873,200 @@
       "rootPath": "app",
       "remoteServiceName": "Default",
       "controllers": {
+        "Hayaan.Application.Services.StudentHistoryExperimentsAppService": {
+          "controllerName": "StudentHistoryExperiments",
+          "controllerGroupName": "StudentHistoryExperiments",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Hayaan.Application.Services.StudentHistoryExperimentsAppService",
+          "interfaces": [],
+          "actions": {
+            "GetCoursesAsync": {
+              "uniqueName": "GetCoursesAsync",
+              "name": "GetCoursesAsync",
+              "httpMethod": "GET",
+              "url": "api/app/student-history-experiments/courses",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Hayaan.Common.LookupDto>",
+                "typeSimple": "[Hayaan.Common.LookupDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Hayaan.Application.Services.StudentHistoryExperimentsAppService"
+            },
+            "GetExperimentsByCourseIdAsyncByCourseId": {
+              "uniqueName": "GetExperimentsByCourseIdAsyncByCourseId",
+              "name": "GetExperimentsByCourseIdAsync",
+              "httpMethod": "GET",
+              "url": "api/app/student-history-experiments/experiments-by-course-id/{courseId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "courseId",
+                  "typeAsString": "System.Int64, System.Private.CoreLib",
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "courseId",
+                  "name": "courseId",
+                  "jsonName": null,
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Hayaan.Common.LookupDto>",
+                "typeSimple": "[Hayaan.Common.LookupDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Hayaan.Application.Services.StudentHistoryExperimentsAppService"
+            },
+            "GetGroupsByCourseIdAsyncByCourseId": {
+              "uniqueName": "GetGroupsByCourseIdAsyncByCourseId",
+              "name": "GetGroupsByCourseIdAsync",
+              "httpMethod": "GET",
+              "url": "api/app/student-history-experiments/groups-by-course-id/{courseId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "courseId",
+                  "typeAsString": "System.Int64, System.Private.CoreLib",
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "courseId",
+                  "name": "courseId",
+                  "jsonName": null,
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Hayaan.Common.LookupDto>",
+                "typeSimple": "[Hayaan.Common.LookupDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Hayaan.Application.Services.StudentHistoryExperimentsAppService"
+            },
+            "GetStudentsByGroupIdAsyncByGroupId": {
+              "uniqueName": "GetStudentsByGroupIdAsyncByGroupId",
+              "name": "GetStudentsByGroupIdAsync",
+              "httpMethod": "GET",
+              "url": "api/app/student-history-experiments/students-by-group-id/{groupId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "groupId",
+                  "typeAsString": "System.Int64, System.Private.CoreLib",
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "groupId",
+                  "name": "groupId",
+                  "jsonName": null,
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Hayaan.Common.LookupDto>",
+                "typeSimple": "[Hayaan.Common.LookupDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Hayaan.Application.Services.StudentHistoryExperimentsAppService"
+            },
+            "GetExperimentUrlAsyncByStudentIdAndExpermientId": {
+              "uniqueName": "GetExperimentUrlAsyncByStudentIdAndExpermientId",
+              "name": "GetExperimentUrlAsync",
+              "httpMethod": "GET",
+              "url": "api/app/student-history-experiments/experiment-url",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "studentId",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "expermientId",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "studentId",
+                  "name": "studentId",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "expermientId",
+                  "name": "expermientId",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Hayaan.Application.Services.StudentHistoryExperimentsAppService"
+            }
+          }
+        },
         "Hayaan.Attachments.AttachmentAppService": {
           "controllerName": "Attachment",
           "controllerGroupName": "Attachment",
@@ -1685,6 +1879,21 @@
               },
               "allowAnonymous": false,
               "implementFrom": "Hayaan.Dashboard.DashboardAppService"
+            },
+            "RefreshDashboard": {
+              "uniqueName": "RefreshDashboard",
+              "name": "RefreshDashboard",
+              "httpMethod": "POST",
+              "url": "api/app/dashboard/refresh-dashboard",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Dashboard.DashboardModel>",
+                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Dashboard.DashboardModel>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Hayaan.Dashboard.DashboardAppService"
             }
           }
         },
@@ -1791,63 +2000,6 @@
               "returnValue": {
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<Hayaan.Experiments.ExperimentDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Hayaan.Experiments.ExperimentDto>"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Hayaan.Experiments.ExperimentAppService"
-            },
-            "GetExperimentUrlAsyncByStudentIdAndExpermientId": {
-              "uniqueName": "GetExperimentUrlAsyncByStudentIdAndExpermientId",
-              "name": "GetExperimentUrlAsync",
-              "httpMethod": "GET",
-              "url": "api/app/experiment/experiment-url",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "studentId",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "expermientId",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "studentId",
-                  "name": "studentId",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "expermientId",
-                  "name": "expermientId",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.String",
-                "typeSimple": "string"
               },
               "allowAnonymous": null,
               "implementFrom": "Hayaan.Experiments.ExperimentAppService"
@@ -3090,8 +3242,23 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Hayaan.Users.StudntDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Hayaan.Users.StudntDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Hayaan.Users.StudentDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Hayaan.Users.StudentDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Hayaan.Services.StudentAppService"
+            },
+            "GetLookupStudentsAsync": {
+              "uniqueName": "GetLookupStudentsAsync",
+              "name": "GetLookupStudentsAsync",
+              "httpMethod": "GET",
+              "url": "api/app/student/lookup-students",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Hayaan.Common.LookupDto>",
+                "typeSimple": "[Hayaan.Common.LookupDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Hayaan.Services.StudentAppService"
@@ -3105,8 +3272,8 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Hayaan.Users.StudntDto>",
-                "typeSimple": "[Hayaan.Users.StudntDto]"
+                "type": "System.Collections.Generic.List<Hayaan.Users.StudentDto>",
+                "typeSimple": "[Hayaan.Users.StudentDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Hayaan.Services.StudentAppService"
@@ -3142,8 +3309,8 @@
                 }
               ],
               "returnValue": {
-                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudntDto>",
-                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudntDto>"
+                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudentDto>",
+                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudentDto>"
               },
               "allowAnonymous": null,
               "implementFrom": "Hayaan.Services.StudentAppService"
@@ -3157,9 +3324,9 @@
               "parametersOnMethod": [
                 {
                   "name": "user",
-                  "typeAsString": "Hayaan.Users.StudntDto, Hayaan.Application.Contracts",
-                  "type": "Hayaan.Users.StudntDto",
-                  "typeSimple": "Hayaan.Users.StudntDto",
+                  "typeAsString": "Hayaan.Users.StudentDto, Hayaan.Application.Contracts",
+                  "type": "Hayaan.Users.StudentDto",
+                  "typeSimple": "Hayaan.Users.StudentDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3169,8 +3336,8 @@
                   "nameOnMethod": "user",
                   "name": "user",
                   "jsonName": null,
-                  "type": "Hayaan.Users.StudntDto",
-                  "typeSimple": "Hayaan.Users.StudntDto",
+                  "type": "Hayaan.Users.StudentDto",
+                  "typeSimple": "Hayaan.Users.StudentDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3179,8 +3346,8 @@
                 }
               ],
               "returnValue": {
-                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudntDto>",
-                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudntDto>"
+                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudentDto>",
+                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudentDto>"
               },
               "allowAnonymous": null,
               "implementFrom": "Hayaan.Services.StudentAppService"
@@ -3194,9 +3361,9 @@
               "parametersOnMethod": [
                 {
                   "name": "user",
-                  "typeAsString": "Hayaan.Users.StudntDto, Hayaan.Application.Contracts",
-                  "type": "Hayaan.Users.StudntDto",
-                  "typeSimple": "Hayaan.Users.StudntDto",
+                  "typeAsString": "Hayaan.Users.StudentDto, Hayaan.Application.Contracts",
+                  "type": "Hayaan.Users.StudentDto",
+                  "typeSimple": "Hayaan.Users.StudentDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3206,8 +3373,8 @@
                   "nameOnMethod": "user",
                   "name": "user",
                   "jsonName": null,
-                  "type": "Hayaan.Users.StudntDto",
-                  "typeSimple": "Hayaan.Users.StudntDto",
+                  "type": "Hayaan.Users.StudentDto",
+                  "typeSimple": "Hayaan.Users.StudentDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3216,8 +3383,8 @@
                 }
               ],
               "returnValue": {
-                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudntDto>",
-                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudntDto>"
+                "type": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudentDto>",
+                "typeSimple": "Hayaan.Domain.Shared.Common.ResponseData<Hayaan.Users.StudentDto>"
               },
               "allowAnonymous": null,
               "implementFrom": "Hayaan.Services.StudentAppService"
@@ -6518,7 +6685,7 @@
       "enumNames": [
         "admin",
         "Instractor",
-        "student"
+        "Student"
       ],
       "enumValues": [
         1,
@@ -7027,8 +7194,8 @@
         {
           "name": "Students",
           "jsonName": null,
-          "type": "[Hayaan.Users.StudntDto]",
-          "typeSimple": "[Hayaan.Users.StudntDto]",
+          "type": "[Hayaan.Users.StudentDto]",
+          "typeSimple": "[Hayaan.Users.StudentDto]",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -7239,7 +7406,7 @@
         }
       ]
     },
-    "Hayaan.Users.StudntDto": {
+    "Hayaan.Users.StudentDto": {
       "baseType": "Hayaan.Users.UserDto",
       "isEnum": false,
       "enumNames": null,
@@ -7251,6 +7418,18 @@
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "GroupsName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

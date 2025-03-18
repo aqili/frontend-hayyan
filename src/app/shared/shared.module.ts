@@ -48,6 +48,8 @@ import { OtpInputComponent } from './components/otp/angular-otp-input.component'
 import { TableViewComponent } from './components/table-view/table-view.component';
 import { UploadExcelComponent } from './components/upload-excel/upload-excel.component';
 import { WithdrawModalComponent } from './components/withdraw-modal/withdraw-modal.component';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+
 @NgModule({
   declarations: [
     NumbersOnlyDirective,
@@ -85,6 +87,7 @@ import { WithdrawModalComponent } from './components/withdraw-modal/withdraw-mod
     ReactiveFormsModule,
     CommonModule,
     NgxValidateCoreModule,
+    NgxIntlTelInputModule,
   ],
   exports: [
     CoreModule,
@@ -114,6 +117,7 @@ import { WithdrawModalComponent } from './components/withdraw-modal/withdraw-mod
     HeaderComponent,
     FooterComponent,
     AddAttachmentComponent,
+    NgxIntlTelInputModule,
     NgbModule,
     TwoDigitDecimalNumberDirective,
     SortDirective,

@@ -15,7 +15,8 @@
 
       <ng-template #abpBody>
         <div class="mt-2">
-          <label for="group-name">{{ '::Name' | abpLocalization }}</label><span> * </span>
+          <label for="group-name">{{ '::Name' | abpLocalization }}</label
+          ><span> * </span>
           <input
             type="text"
             id="group-name"
@@ -33,7 +34,7 @@
           <label for="book-type">{{ '::Menu:Students' | abpLocalization }}</label>
           <ng-select
             [items]="students"
-            bindLabel="fullName"
+            bindLabel="name"
             bindValue="id"
             [multiple]="true"
             placeholder="Select Students"

@@ -10,7 +10,6 @@ export class UserService implements OnInit {
 
   constructor(private config: ConfigStateService) {
     this.config.getOne$('currentUser').subscribe(currentUser => {
-      console.log("abdo",currentUser)
       this.currentUser = currentUser;
     });
   }

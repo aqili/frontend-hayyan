@@ -25,6 +25,12 @@ export class HeaderComponent extends BaseComponent {
   ) {
     super();
   }
+  menuOpen: boolean = false; // Initialize the menu state
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen; // Toggle the menu state
+    console.log('Menu toggled:', this.menuOpen); // Debug log
+  }
   changeLang() {
     this.sessionState.setLanguage(this.sessionState.getLanguage() == 'ar' ? 'en' : 'ar');
     location.reload();

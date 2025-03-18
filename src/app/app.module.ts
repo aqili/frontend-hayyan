@@ -21,6 +21,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { VALIDATION_ERROR_TEMPLATE } from '@ngx-validate/core';
 
@@ -28,9 +29,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { VALIDATION_BLUEPRINTS } from '@ngx-validate/core';
 
+import Aura from '@primeng/themes/aura';
+
 import { NgxLoadingModule } from 'ngx-loading';
 
 import { LoggerModule, NGXLogger } from 'ngx-logger';
+
+import { providePrimeNG } from 'primeng/config';
 
 import { environment, Config } from '../environments/environment';
 
@@ -47,11 +52,6 @@ import { MyHttpInterceptor } from './shared/interceptors/http.interceptor';
 import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 import { LoaderService } from './shared/service/loader.service';
 import { UserIdleComponent } from './shared/user-idle-manager/user-idle/user-idle.component';
-
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
-
 
 @NgModule({
   declarations: [AppComponent, UserIdleComponent, AuthLayoutComponent, AnonymousLayoutComponent],
@@ -86,14 +86,14 @@ import Aura from '@primeng/themes/aura';
       withOptions({
         environment,
         registerLocaleFn: registerLocale(),
-      })
+      }),
     ),
     provideAbpOAuth(),
-   
+
     provideAbpThemeShared(),
     ListService,
     { provide: VALIDATION_ERROR_TEMPLATE, useValue: ErrorComponentTest },
-   
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MyHttpInterceptor,
@@ -111,7 +111,7 @@ import Aura from '@primeng/themes/aura';
       provide: VALIDATION_BLUEPRINTS,
       useValue: {
         ...DEFAULT_VALIDATION_BLUEPRINTS,
-        inavalidsaudiPhone: 'هذا الرقم غير صحيح',
+        validatePhoneNumber: '::invalidPhoneNumber',
         invalidEnglishAndNumberOnly: 'يجب ان يكون الحقل حروف انجليزيه وارقام فقط',
         invalidEnglishAndSpaceOnly: 'يجب ان يكون الحقل حروف انجليزيه فقط',
         invalidNumber: 'الرقم غير صحيح',
@@ -119,14 +119,14 @@ import Aura from '@primeng/themes/aura';
       },
     },
     provideAnimationsAsync(),
-        providePrimeNG({
-            theme: {
-                preset: Aura,
-                options: {
-                  darkModeSelector: false || 'none',
-              }
-            }
-        })
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: {
+          darkModeSelector: false || 'none',
+        },
+      },
+    }),
   ],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,8 @@
+<input type="button" value="تحديث" (click)="refreshDashboard()" style="margin: 30px;"/>
 <div class="grid grid-cols-12 gap-8">
+   
 <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+    <a href="./courses">
     <div class="card mb-0">
         <div class="flex justify-between mb-4">
             <div>
@@ -13,8 +16,10 @@
         <!-- <span class="text-primary font-medium">24 new </span>
         <span class="text-muted-color">since last visit</span>-->
     </div> 
+</a>
 </div>
 <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+    <a href="./groups">
     <div class="card mb-0">
         <div class="flex justify-between mb-4">
             <div>
@@ -28,8 +33,10 @@
         <!-- <span class="text-primary font-medium">%52+ </span>
         <span class="text-muted-color">since last week</span> -->
     </div>
+    </a>
 </div>
 <div class="col-span-12 lg:col-span-6 xl:col-span-3" *ngIf="!isStudent()">
+    <a href="./students">
     <div class="card mb-0">
         <div class="flex justify-between mb-4">
             <div>
@@ -43,8 +50,10 @@
         <!-- <span class="text-primary font-medium">520 </span>
         <span class="text-muted-color">newly registered</span> -->
     </div>
+    </a>
 </div>
 <div class="col-span-12 lg:col-span-6 xl:col-span-3" *ngIf="isAdmin()">
+    <a href="./instructors">
     <div class="card mb-0">
         <div class="flex justify-between mb-4">
             <div>
@@ -58,8 +67,10 @@
         <!-- <span class="text-primary font-medium">85 </span>
         <span class="text-muted-color">responded</span> -->
     </div>
+    </a>
 </div>
 <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+    <a href="./experiments">
     <div class="card mb-0">
         <div class="flex justify-between mb-4">
             <div>
@@ -73,5 +84,6 @@
         <!-- <span class="text-primary font-medium">85 </span>
         <span class="text-muted-color">responded</span> -->
     </div>
+    </a>
 </div>
 </div>

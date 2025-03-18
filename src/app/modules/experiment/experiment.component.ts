@@ -37,14 +37,13 @@ export class ExperimentComponent
         dataProperty: 'name',
       },
       {
-        title: 'StartDate',
-        dataProperty: 'startDate',
-        type: this.ColumnTypeEnum.DateOnly,
+        title: 'Duration',
+        dataProperty: 'duration',
       },
       {
-        title: 'EndDate',
-        dataProperty: 'endDate',
-        type: this.ColumnTypeEnum.DateOnly,
+        title: 'Logo',
+        dataProperty: 'logo',
+        type: this.ColumnTypeEnum.Image,
       },
       {
         title: 'IsActive',
@@ -80,7 +79,11 @@ export class ExperimentComponent
     return firstValueFrom(this.Service.delete(item));
   }
   add() {
-    var mod = this.ModalService.open(ExperimentModalComponent);
+    var mod = this.ModalService.open(ExperimentModalComponent, {
+      size: 'lg', // Options: 'sm', 'md' (default), 'lg', 'xl'
+      fullscreen: true,
+      windowClass: 'custom-modal-class'
+    });
     mod.componentInstance.afterCloseModal = () => {
       this.refreshData();
     };
@@ -91,6 +94,8 @@ export class ExperimentComponent
       selectedExperiment: item,
       isEdit: true,
       experimentId: item.id,
+      size: 'lg', // Options: 'sm', 'md' (default), 'lg', 'xl'
+      fullscreen: true,
     });
   }
 }

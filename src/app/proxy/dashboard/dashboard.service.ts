@@ -16,6 +16,14 @@ export class DashboardService {
       url: '/api/app/dashboard/dashboard',
     },
     { apiName: this.apiName,...config });
+  
+
+  refreshDashboard = (config?: Partial<Rest.Config>) =>
+    this.restService.request<any, ResponseData<DashboardModel>>({
+      method: 'POST',
+      url: '/api/app/dashboard/refresh-dashboard',
+    },
+    { apiName: this.apiName,...config });
 
   constructor(private restService: RestService) {}
 }

@@ -23,6 +23,7 @@ import { BaseComponent } from 'src/app/shared/components/base/base.component';
   selector: 'app-table-view',
   templateUrl: './table-view.component.html',
   providers: [ListService, { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }],
+  styleUrls: ['./table-view.component.css'],
 })
 export class TableViewComponent extends BaseComponent implements OnInit {
   @Input() tableData: any;

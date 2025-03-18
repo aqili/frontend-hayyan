@@ -9,6 +9,8 @@ import { LocalizationParam, LocalizationService } from '@abp/ng.core';
 
 import { NgbCalendar, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { UserType } from '@proxy/domain/shared/enums';
+
 import { NotificationService } from '@shared/service/notification.service';
 import { UserService } from '@shared/service/user.service';
 import { EncryptDecrService } from '@shared/service/encr-decr.service ';
@@ -17,12 +19,12 @@ import { CustomNgbDatepickerHijri } from '@shared/service/custom-ngb-datepicker.
 
 import { NGXLogger } from 'ngx-logger';
 
+import { ActionType, ColumnTypeEnum } from 'src/app/core/models/table-config-model';
+
 import { Shell } from '../../shell';
 import { CustomAuthService } from '../../service/custom-auth.service';
 import { LoaderService } from '../../service/loader.service';
 import { MyAttachmentsService } from '../add-attachment/types/my.attachments.service';
-import { ActionType, ColumnTypeEnum } from 'src/app/core/models/table-config-model';
-import { UserType } from '@proxy/domain/shared/enums';
 
 @Component({
   template: ``,
@@ -126,6 +128,9 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
     this.buildForm();
     this.onFinishOnInit();
   }
+  isObject(value) {
+    return value !== null && typeof value === 'object';
+  }
   goToHome() {
     this.Router.navigateByUrl('/');
   }
@@ -137,7 +142,7 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
   protected conditionalValidator(
     predicate: () => boolean,
     validator: ValidatorFn,
-    errorNamespace?: string
+    errorNamespace?: string,
   ) {
     return formControl => {
       if (!formControl.parent) {
@@ -177,12 +182,12 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
     return !one || !two
       ? false
       : one.year === two.year
-      ? one.month === two.month
-        ? one.day === two.day
-          ? false
-          : one.day < two.day
-        : one.month < two.month
-      : one.year < two.year;
+        ? one.month === two.month
+          ? one.day === two.day
+            ? false
+            : one.day < two.day
+          : one.month < two.month
+        : one.year < two.year;
   }
   get resolver(): ComponentFactoryResolver {
     return this.getByInjector(ComponentFactoryResolver);
@@ -191,12 +196,12 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
     return !one || !two
       ? false
       : one.year === two.year
-      ? one.month === two.month
-        ? one.day === two.day
-          ? false
-          : one.day > two.day
-        : one.month > two.month
-      : one.year > two.year;
+        ? one.month === two.month
+          ? one.day === two.day
+            ? false
+            : one.day > two.day
+          : one.month > two.month
+        : one.year > two.year;
   }
 
   getComponentInstance(comp) {
@@ -256,19 +261,19 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
     message: LocalizationParam,
     title: LocalizationParam,
     successCallback: () => void,
-    options?: Partial<Confirmation.Options>
+    options?: Partial<Confirmation.Options>,
   ) {
     this.ConfirmationService.warn(message, title, options).subscribe(
       (status: Confirmation.Status) => {
         if (status == Confirmation.Status.confirm) {
           successCallback();
         }
-      }
+      },
     );
   }
   protected onErrorFailed(err) {
     this.ToasterService.error(
-      typeof err === 'string' ? err : JSON.stringify(err?.error?.error?.message)
+      typeof err === 'string' ? err : JSON.stringify(err?.error?.error?.message),
     );
     // this.ToasterService.error(typeof err === 'string' ? err : JSON.stringify(err));
     this.Logger.error(err);
@@ -320,7 +325,7 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
     parms: string[],
     isCheck = true,
     activatedRoute: ActivatedRoute = null,
-    canDecodedUrl = true
+    canDecodedUrl = true,
   ): { decrepitValues: any; encryptedValues } {
     var res = {};
     let query = null;
@@ -378,32 +383,30 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
     });
   }
 
-  
-AutoUnsub() {
-  return function (constructor) {
-    const orig = constructor.prototype.ngOnDestroy;
-    constructor.prototype.ngOnDestroy = function () {
-      for (const prop in this) {
-        const property = this[prop];
-        if (typeof property.subscribe === 'function') {
-          property.unsubscribe();
+  AutoUnsub() {
+    return function (constructor) {
+      const orig = constructor.prototype.ngOnDestroy;
+      constructor.prototype.ngOnDestroy = function () {
+        for (const prop in this) {
+          const property = this[prop];
+          if (typeof property.subscribe === 'function') {
+            property.unsubscribe();
+          }
         }
-      }
-      orig.apply();
+        orig.apply();
+      };
     };
-  };
-}
+  }
 
-isAdmin():boolean{
-  return this.UserService.checkCurrentUserInRole(UserType[UserType.admin]);
-}
+  isAdmin(): boolean {
+    return this.UserService.checkCurrentUserInRole(UserType[UserType.admin]);
+  }
 
-isStudent():boolean{
-  return this.UserService.checkCurrentUserInRole(UserType[UserType.student]);
-}
+  isStudent(): boolean {
+    return this.UserService.checkCurrentUserInRole(UserType[UserType.Student]);
+  }
 
-isInstructor():boolean{
-  return this.UserService.checkCurrentUserInRole(UserType[UserType.Instractor]);
-}
-
+  isInstructor(): boolean {
+    return this.UserService.checkCurrentUserInRole(UserType[UserType.Instractor]);
+  }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { AuthService } from '@abp/ng.core';
+import { AuthService, SessionStateService } from '@abp/ng.core';
 
 import { MenuItem } from 'primeng/api';
 import { StyleClassModule } from 'primeng/styleclass';
@@ -10,6 +10,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { LayoutService } from '../service/layout.service';
 
 import { AppConfigurator } from './app.configurator';
+import { UserService } from '../../shared/service/user.service';
 
 @Component({
   selector: 'app-topbar',
@@ -23,13 +24,15 @@ import { AppConfigurator } from './app.configurator';
       >
         <i class="pi pi-bars"></i>
       </button>
-      <a class="layout-topbar-logo" routerLink="/"> حيان </a>
+      <a class="layout-topbar-logo" routerLink="/"> {{this.currentLanguage==="ar"?"حيان":"Hayyan"}} </a>
     </div>
 
     <div class="layout-topbar-actions">
+    <h5>{{userService?.getCurrentUser()?.name}}</h5>
       <div class="layout-config-menu">
+
         <div class="relative">
-          <button
+          <!-- <button
             class="layout-topbar-action layout-topbar-action-highlight"
             pStyleClass="@next"
             enterFromClass="hidden"
@@ -39,11 +42,10 @@ import { AppConfigurator } from './app.configurator';
             [hideOnOutsideClick]="true"
           >
             <i class="pi pi-palette"></i>
-          </button>
+          </button> -->
           <app-configurator />
         </div>
       </div>
-
       <button
         class="layout-topbar-menu-button layout-topbar-action"
         pStyleClass="@next"
@@ -55,9 +57,13 @@ import { AppConfigurator } from './app.configurator';
       >
         <i class="pi pi-ellipsis-v"></i>
       </button>
-
+      
+      
       <div class="layout-topbar-menu hidden lg:block">
         <div class="layout-topbar-menu-content">
+        <button (click)="languageToggle()"> {{this.currentLanguage==="ar"?"En":"عربي"}} </button>
+         
+
           <button
             title="logOut"
             *ngIf="hasLoggedIn"
@@ -79,19 +85,30 @@ import { AppConfigurator } from './app.configurator';
             <span>login</span>
           </button>
         </div>
+        
       </div>
     </div>
   </div>`,
 })
 export class AppTopbar {
   items!: MenuItem[];
-
   constructor(
     public layoutService: LayoutService,
     private authService: AuthService,
+    private stateService :SessionStateService,
+    public userService:UserService
   ) {}
   get hasLoggedIn(): boolean {
     return this.authService.isAuthenticated;
+  }
+  get currentLanguage()
+  {
+    return this.stateService.getLanguage()
+  } 
+  languageToggle()
+  {
+    this.stateService.setLanguage(this.currentLanguage==="ar"?"en":"ar");
+    window.location.reload();
   }
   toggleDarkMode() {
     this.layoutService.layoutConfig.update(state => ({ ...state, darkTheme: !state.darkTheme }));

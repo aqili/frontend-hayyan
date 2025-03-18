@@ -17,15 +17,15 @@ export class HomeComponent implements OnInit {
   images: { src: string; text: string }[] = [
     {
       src: './assets/wp-content/uploads/2home.png',
-      text: 'Abstract Digital Network',
+      text: '',
     },
     {
       src: './assets/wp-content/uploads/1home.png',
-      text: 'Product Display with Purple Glass',
+      text: '',
     },
     {
       src: './assets/wp-content/uploads/3home.png',
-      text: 'Scientist Working with Microscope',
+      text: '',
     },
   ];
   constructor(

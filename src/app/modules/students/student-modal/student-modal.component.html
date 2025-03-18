@@ -10,12 +10,13 @@
   >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <ng-template #abpHeader>
-        <h3>{{'::AddStudent' | abpLocalization}}</h3>
+        <h3>{{ '::AddStudent' | abpLocalization }}</h3>
       </ng-template>
 
       <ng-template #abpBody>
         <div class="mt-2">
-          <label for="student-name">{{'::FirstName' | abpLocalization}}</label><span> * </span>
+          <label for="student-name">{{ '::FirstName' | abpLocalization }}</label
+          ><span> * </span>
           <input
             type="text"
             id="student-name"
@@ -26,7 +27,8 @@
         </div>
 
         <div class="mt-2">
-          <label for="student-name">{{'::LastName' | abpLocalization}}</label><span> * </span>
+          <label for="student-name">{{ '::LastName' | abpLocalization }}</label
+          ><span> * </span>
           <input
             type="text"
             id="student-name"
@@ -37,18 +39,35 @@
         </div>
 
         <div class="mt-2">
-          <label for="student-name">{{'::Telephone' | abpLocalization}}</label>
-          <input
+          <label for="student-name">{{ '::Telephone' | abpLocalization }}</label>
+          <!--  <input
             type="text"
             id="student-name"
             class="form-control"
             formControlName="telephone"
             autofocus
-          />
+          /> -->
+          <ngx-intl-tel-input
+            [cssClass]="'form-control'"
+            [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.India"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            [separateDialCode]="separateDialCode"
+            [numberFormat]="PhoneNumberFormat.National"
+            name="telephone"
+            formControlName="telephone"
+          >
+          </ngx-intl-tel-input>
         </div>
 
         <div class="mt-2">
-          <label for="student-name">{{'::Email' | abpLocalization}}</label>
+          <label for="student-name">{{ '::Email' | abpLocalization }}</label>
           <input
             type="text"
             id="student-name"
@@ -65,9 +84,9 @@
         </button>
 
         <button
+          [disabled]="form.invalid || form.pristine"
           (click)="onSubmit()"
           class="btn btn-primary col-md-5 ml-2"
-          [disabled]="form.invalid || form.pristine"
         >
           {{ '::btn_Save' | abpLocalization }}
         </button>

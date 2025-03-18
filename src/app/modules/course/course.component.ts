@@ -55,6 +55,14 @@ export class CourseComponent extends ListBaseComponent<CourseDto, ListSearchDto>
         dataProperty: 'isActive',
         type: this.ColumnTypeEnum.CheckBox,
       },
+      {
+        title: 'GroupsCount',
+        dataProperty: 'groupsCount',
+      },
+      {
+        title: 'ExperimentsCount',
+        dataProperty: 'experimentsCount',
+      },
     ],
     rowActions: [
       {

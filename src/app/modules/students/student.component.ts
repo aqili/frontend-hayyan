@@ -53,6 +53,10 @@ export class StudentComponent extends ListBaseComponent<UserDto, ListSearchDto> 
         dataProperty: 'email',
       },
       {
+        title: 'GroupNames',
+        dataProperty: 'groupNames',
+      },
+      {
         title: 'Active',
         dataProperty: 'isActive',
         type: ColumnTypeEnum.CheckBox,
@@ -98,22 +102,22 @@ export class StudentComponent extends ListBaseComponent<UserDto, ListSearchDto> 
     uploadExcelApi: '/api/app/student/upload-excel-user',
     searchColumnFilter: [
       {
-        displayName: 'FirstName',
+        displayName: this.LocalizationService.instant('::FirstName'),
         name: 'FirstName',
         filterOptionType: FilterOptionTypeEnum.Text,
       },
       {
-        displayName: 'Email',
+        displayName: this.LocalizationService.instant('::Email'),
         name: 'Email',
         filterOptionType: FilterOptionTypeEnum.Text,
       },
       {
-        displayName: 'Course Name',
+        displayName: this.LocalizationService.instant('::CourseName'),
         name: 'StudentGroups.Group.CourseInstractorGroups.Course.Name',
         filterOptionType: FilterOptionTypeEnum.Text,
       },
       {
-        displayName: 'Group Name',
+        displayName: this.LocalizationService.instant('::GroupName'),
         name: 'StudentGroups.Group.Name',
         filterOptionType: FilterOptionTypeEnum.Text,
       },

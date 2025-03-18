@@ -9,7 +9,7 @@ import { Validation, ValidationErrorComponent } from '@ngx-validate/core';
       class="font-weight-bold font-italic px-1 invalid-feedback"
       *ngFor="let error of abpErrors; trackBy: trackByFn"
     >
-      {{ error.message | abpLocalization : error.interpoliteParams }}
+      {{ error.message | abpLocalization: error.interpoliteParams }}
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +21,6 @@ export class ErrorComponentTest extends ValidationErrorComponent {
     return this.errors.map(error => {
       if (!error.message) return error;
       const index = error.message.indexOf('[');
-
       if (index > -1) {
         var msg = {
           ...error,

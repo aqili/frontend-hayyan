@@ -1,0 +1,11 @@
+// In your styles.scss or component-specific styles
+.custom-modal-class .modal-dialog {
+    max-width: 800px; // Set your custom width
+    width: 90%;       // Responsive width
+  }
+  
+  .custom-modal-class .modal-content {
+    min-height: 500px; // Set minimum height if needed
+    max-height: 80vh;  // Responsive height
+    overflow-y: auto;  // Add scrolling if content exceeds height
+  }

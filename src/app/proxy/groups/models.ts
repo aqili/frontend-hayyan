@@ -1,4 +1,4 @@
-import type { StudntDto } from '../users/models';
+import type { StudentDto } from '../users/models';
 
 export interface AddStudentsToGroupDto {
   groupId: number;
@@ -15,5 +15,6 @@ export interface GroupDto {
   id?: number;
   name?: string;
   description?: string;
-  students: StudntDto[];
+  students: StudentDto[];
+  studentCount:number;
 }

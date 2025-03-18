@@ -63,7 +63,11 @@
                 class="hfe-nav-menu hfe-layout-horizontal hfe-nav-menu-layout horizontal hfe-pointer__underline hfe-animation__fade"
                 data-layout="horizontal"
               >
-                <div role="button" class="hfe-nav-menu__toggle elementor-clickable">
+                <div
+                  role="button"
+                  class="hfe-nav-menu__toggle elementor-clickable"
+                  (click)="toggleMenu()"
+                >
                   <span class="screen-reader-text">Menu</span>
                   <div class="hfe-nav-menu-icon">
                     <svg
@@ -83,6 +87,62 @@
                       </g>
                     </svg>
                   </div>
+                  <ul id="menu-1-ddf1df7" class="hfe-nav-menu" *ngIf="menuOpen">
+                    <li
+                      id="menu-item-51"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-41 current_page_item parent hfe-creative-menu"
+                    >
+                      <a href="#" class="hfe-menu-item">الرئيسية</a>
+                    </li>
+                    <li
+                      id="menu-item-52"
+                      class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"
+                    >
+                      <a href="#" fragment="section3" class="hfe-menu-item">من نحن</a>
+                    </li>
+
+                    <li
+                      id="menu-item-437"
+                      class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"
+                    >
+                      <a href="#" class="hfe-menu-item">مختبرات حيّان</a>
+                    </li>
+
+                    <li
+                      id="menu-item-54"
+                      class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"
+                    >
+                      <a href="#" class="hfe-menu-item">تواصل معنا</a>
+                    </li>
+                    <li
+                      *ngIf="hasLoggedIn"
+                      id="menu-item-437"
+                      class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"
+                    >
+                      <a routerLink="/dashboard" class="hfe-menu-item">الإدارة</a>
+                    </li>
+                    <li
+                      *ngIf="hasLoggedIn"
+                      id="menu-item-54"
+                      class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"
+                    >
+                      <a
+                        class="hfe-menu-item"
+                        (click)="logout()"
+                        asp-controller="Account"
+                        asp-action="Logout"
+                        >تسجيل خروج</a
+                      >
+                    </li>
+
+                    <li
+                      id="menu-item-54"
+                      class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"
+                      *ngIf="!hasLoggedIn"
+                    >
+                      <a class="hfe-menu-item" (click)="login()">تسجيل الدخول</a>
+                    </li>
+                  </ul>
                 </div>
                 <nav
                   class="hfe-nav-menu__layout-horizontal hfe-nav-menu__submenu-arrow"
@@ -101,9 +161,7 @@
                       id="menu-item-52"
                       class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu"
                     >
-                      <a [routerLink]="['/home']" fragment="section3" class="hfe-menu-item"
-                        >من نحن</a
-                      >
+                      <a href="#" fragment="section3" class="hfe-menu-item">من نحن</a>
                     </li>
 
                     <li

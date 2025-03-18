@@ -1,8 +1,9 @@
 import type { EntityDto } from '@abp/ng.core';
 import type { UserType } from '../domain/shared/enums/user-type.enum';
 
-export interface StudntDto extends UserDto {
+export interface StudentDto extends UserDto {
   isActive: any;
+  groupNames?:string;
 }
 
 export interface UserDto extends EntityDto<number> {

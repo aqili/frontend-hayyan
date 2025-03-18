@@ -26,13 +26,11 @@ export class ExperimentModalComponent extends BaseModalComponent implements OnIn
     if (this.experimentId) this.getByParams(this.experimentId);
   }
   protected buildForm(): void {
-    this.form = this.FormBuilder.group(
-      {
-        name: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(200)]],
-        description: [null, Validators.maxLength(500)],       
-        isActive: [null],
-      }
-    );
+    this.form = this.FormBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(300)]],
+      description: [null, Validators.maxLength(7000)],
+      isActive: [null],
+    });
   }
   protected save(): Promise<ResponseData<ExperimentDto>> {
     if (this.isEdit) {

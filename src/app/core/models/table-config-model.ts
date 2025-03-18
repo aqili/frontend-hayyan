@@ -32,7 +32,7 @@ export enum ColumnTypeEnum {
   DateOnly,
   CheckBox,
   RadioButton,
-
+  Image,
   Email,
 
   Enum,

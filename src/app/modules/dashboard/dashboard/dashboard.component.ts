@@ -1,3 +1,4 @@
+import { LocalizationService } from '@abp/ng.core';
 import { Component, OnInit } from '@angular/core';
 import { BaseModalComponent } from '@base/base-modal.component';
 import { DashboardService } from '@proxy/dashboard';
@@ -10,13 +11,15 @@ import { ResponseData } from '@proxy/domain/shared/common';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent  extends BaseModalComponent implements OnInit {
+  
      get Service(): DashboardService {
         return this.getByInjector(DashboardService);
       }
       dashboard: DashboardModel = {
       courses:0,assingedExperiments:0,experiments:0,groups:0,students:0,instructors:0,userType:0
      };
-    ngOnInit(): void {
+    ngOnInit(): void {      
+      //this.getByInjector(LocalizationService).setLanguage('ar');
         this.showIntervalLoader();
             this.Service.getDashboard(
             ).subscribe((arg: ResponseData<DashboardModel>) => {
@@ -28,6 +31,19 @@ export class DashboardComponent  extends BaseModalComponent implements OnInit {
                 this.ToasterService.error(arg.firstErrorMessage);
               }
             });
+    }
+
+    refreshDashboard(){
+      this.Service.refreshDashboard(
+      ).subscribe((arg: ResponseData<DashboardModel>) => {
+        this.hideIntervalLoader();
+  
+        if (arg.isValid) {
+          this.dashboard =arg.data;
+        } else {
+          this.ToasterService.error(arg.firstErrorMessage);
+        }
+      });
     }
 
 }

@@ -53,16 +53,6 @@ export class ExperimentService {
     { apiName: this.apiName,...config });
   
 
-  getExperimentUrl = (studentId: string, expermientId: string, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, string>({
-      method: 'GET',
-      responseType: 'text',
-      url: '/api/app/experiment/experiment-url',
-      params: { studentId, expermientId },
-    },
-    { apiName: this.apiName,...config });
-  
-
   getList = (input: PagedAndSortedResultRequestDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, PagedResultDto<ExperimentDto>>({
       method: 'GET',

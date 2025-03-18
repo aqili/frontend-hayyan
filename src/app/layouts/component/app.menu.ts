@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MenuItem } from 'primeng/api';
-import { AppMenuitem } from './app.menuitem';
+
+import { UserType } from '@proxy/domain/shared/enums';
+
 import { SharedModule } from '@shared/shared.module';
+import { Shell } from '@shared/shell';
+
+import { MenuItem } from 'primeng/api';
+
+import { UserService } from '../../shared/service/user.service';
+
+import { AppMenuitem } from './app.menuitem';
 
 @Component({
   selector: 'app-menu',
@@ -18,47 +26,85 @@ import { SharedModule } from '@shared/shared.module';
 })
 export class AppMenu {
   model: MenuItem[] = [];
-
+  get userService(): UserService {
+    return Shell.injector.get(UserService);
+  }
   ngOnInit() {
     this.model = [
       {
-        label: 'Home',
+        label: '::Menu:Home',
         items: [
           {
-            label: 'Main Site',
+            label: '::Menu:HomePage',
             icon: 'pi pi-fw pi-home',
+
             routerLink: ['/'],
           },
-          { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard'] },
+          { label: '::Menu:Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard'] },
         ],
       },
       {
-        label: 'Pages',
+        label: '::Menu:Pages',
         items: [
           {
             label: '::Menu:Groups',
             icon: 'fas fa-users',
+            visible: this.userService.checkCurrentUserInRoles([
+              UserType[UserType.admin],
+              UserType[UserType.Instractor],
+            ]),
             routerLink: ['/groups'],
           },
           {
             label: '::Menu:Courses',
             icon: 'fas fa-graduation-cap',
+            visible: this.userService.checkCurrentUserInRoles([
+              UserType[UserType.admin],
+              UserType[UserType.Instractor],
+            ]),
             routerLink: ['/courses'],
           },
           {
             label: '::Menu:Experiments',
             icon: 'fas fa-flask',
+            visible: this.userService.checkCurrentUserInRoles([
+              UserType[UserType.admin],
+              UserType[UserType.Instractor],
+            ]),
             routerLink: ['/experiments'],
           },
           {
             label: '::Menu:Instructors',
             icon: 'fas fa-chalkboard-teacher',
+            visible: this.userService.checkCurrentUserInRole(UserType[UserType.admin]),
             routerLink: ['/instructors'],
           },
           {
             label: '::Menu:Students',
             icon: 'fas fa-user-graduate',
+            visible: this.userService.checkCurrentUserInRoles([
+              UserType[UserType.admin],
+              UserType[UserType.Instractor],
+            ]),
             routerLink: ['/students'],
+          },
+          {
+            label: '::Menu:StudentCourses',
+            icon: 'fas fa-user-graduate',
+            visible: this.userService.checkCurrentUserInRole(UserType[UserType.Student]),
+            routerLink: ['/student-courses'],
+          },
+          {
+            label: '::Menu:InstructorCourses', 
+            icon: 'fas fa-chalkboard-teacher',
+            visible: this.userService.checkCurrentUserInRole(UserType[UserType.Instractor]),
+            routerLink: ['/instructor-courses'],
+          },
+          {
+            label: '::Menu:historyExperiments',
+            icon: 'fas fa-chalkboard-teacher',
+            visible: this.userService.checkCurrentUserInRoles([UserType[UserType.admin],UserType[UserType.Instractor]]),
+            routerLink: ['/students/history-experiment'],
           },
           // {
           //   label: 'Landing',

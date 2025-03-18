@@ -1,10 +1,10 @@
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
-import type { ListSearchDto } from '../common/models';
+import type { ListSearchDto, LookupDto } from '../common/models';
 import type { ResponseData } from '../domain/shared/common/models';
 import type { IFormFile } from '../microsoft/asp-net-core/http/models';
-import type { ResponseUploadBatchDto, StudntDto } from '../users/models';
+import type { ResponseUploadBatchDto, StudentDto } from '../users/models';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +21,8 @@ export class StudentService {
     { apiName: this.apiName,...config });
   
 
-  create = (user: StudntDto, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, ResponseData<StudntDto>>({
+  create = (user: StudentDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, ResponseData<StudentDto>>({
       method: 'POST',
       url: '/api/app/student',
       body: user,
@@ -47,7 +47,7 @@ export class StudentService {
   
 
   get = (id: number, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, ResponseData<StudntDto>>({
+    this.restService.request<any, ResponseData<StudentDto>>({
       method: 'GET',
       url: `/api/app/student/${id}`,
     },
@@ -55,15 +55,23 @@ export class StudentService {
   
 
   getAllStudents = (config?: Partial<Rest.Config>) =>
-    this.restService.request<any, StudntDto[]>({
+    this.restService.request<any, StudentDto[]>({
       method: 'GET',
       url: '/api/app/student/students',
     },
     { apiName: this.apiName,...config });
   
 
+  getLookupStudents = (config?: Partial<Rest.Config>) =>
+    this.restService.request<any, LookupDto[]>({
+      method: 'GET',
+      url: '/api/app/student/lookup-students',
+    },
+    { apiName: this.apiName,...config });
+  
+
   list = (input: ListSearchDto, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, PagedResultDto<StudntDto>>({
+    this.restService.request<any, PagedResultDto<StudentDto>>({
       method: 'POST',
       url: '/api/app/student/list',
       body: input,
@@ -79,8 +87,8 @@ export class StudentService {
     { apiName: this.apiName,...config });
   
 
-  update = (user: StudntDto, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, ResponseData<StudntDto>>({
+  update = (user: StudentDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, ResponseData<StudentDto>>({
       method: 'PUT',
       url: '/api/app/student',
       body: user,

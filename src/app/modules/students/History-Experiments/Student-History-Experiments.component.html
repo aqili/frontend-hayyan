@@ -1,0 +1,50 @@
+<div>
+  <h2>{{ '::Menu:historyExperiments' | abpLocalization }}</h2>
+  <div>
+    <label>{{ '::CourseName' | abpLocalization }}</label>
+    <ng-select [items]="courses" bindLabel="name" bindValue="id" [(ngModel)]="selectedCourse" placeholder="Select a course" (change)="onCourseChange($event)">
+    </ng-select>
+  </div>
+  <div>
+    <label>{{ '::experimentName' | abpLocalization }} </label>
+    <ng-select [items]="experiments" bindLabel="name" bindValue="id" [(ngModel)]="selectedExperiment" placeholder="Select an experiment">
+    </ng-select>
+  </div>
+  <div>
+    <label>{{ '::GroupName' | abpLocalization }}</label>
+    <ng-select [items]="groups" bindLabel="name" bindValue="id" [(ngModel)]="selectedGroup" placeholder="Select a group" (change)="onGroupChange($event)">
+    </ng-select>
+  </div>
+  <div>
+    <label>{{ '::StudentName' | abpLocalization }}</label>
+    <ng-select [items]="students" bindLabel="name" bindValue="id" [(ngModel)]="selectedStudent" placeholder="Select a student">
+    </ng-select>
+  </div>
+  
+<br/>
+  <div>
+    <button (click)="onSearch()" class="btn btn-primary view-btn list-view">
+      {{ '::Search' | abpLocalization }}
+    </button>
+
+  </div>
+
+
+   <!-- Conditionally render the StudentExperTriesDetailsComponent and pass inputs -->
+   <!-- <app-student-exper-tries-details 
+     *ngIf="showDetails" 
+     [studentid]="selectedStudent" 
+     [experimentid]="selectedExperiment">
+   </app-student-exper-tries-details>
+  </div> -->
+
+  
+<div *ngIf="iframeUrl; else loading">
+  <iframe [src]="iframeUrl"   width="100%" height="600px"></iframe>
+</div>
+<ng-template #loading>
+  <p>Loading experiment...</p>
+</ng-template>
+<div *ngIf="errorMessage">
+  <p style="color: red;">{{ errorMessage }}</p>
+</div>

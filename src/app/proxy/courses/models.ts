@@ -15,6 +15,8 @@ export interface CourseDto {
   experiments: ExperimentDto[];
   instractorId?: number;
   groupId?: number;
+  groupsCount:number;
+  experimentsCount:number;
 }
 
 export interface CreateUpdateCourseDto {

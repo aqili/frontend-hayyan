@@ -22,8 +22,8 @@ import {
 
 import { GroupModalComponent } from './group-modal/group-modal.component';
 import { StudentService } from '@proxy/services';
-import { StudntDto } from '@proxy/users';
-import { ListSearchDto } from '@proxy/common';
+import { StudentDto } from '@proxy/users';
+import { ListSearchDto, LookupDto } from '@proxy/common';
 
 @Component({
   selector: 'app-group',
@@ -31,7 +31,7 @@ import { ListSearchDto } from '@proxy/common';
   providers: [ListService, { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }],
 })
 export class GroupComponent extends ListBaseComponent<GroupDto, ListSearchDto> implements OnInit {
-  students: StudntDto[] = [];
+  students: LookupDto[] = [];
   get Service(): GroupService {
     return this.getByInjector(GroupService);
   }
@@ -49,6 +49,10 @@ export class GroupComponent extends ListBaseComponent<GroupDto, ListSearchDto> i
       {
         title: 'Description',
         dataProperty: 'description',
+      },
+      {
+        title: 'StudentCount',
+        dataProperty: 'studentCount',
       },
     ],
     rowActions: [
@@ -87,7 +91,7 @@ export class GroupComponent extends ListBaseComponent<GroupDto, ListSearchDto> i
     return this.Service.getList(dto);
   }
   getStudentList() {
-    return this.studentService.getAllStudents().subscribe(s => (this.students = s));
+    return this.studentService.getLookupStudents().subscribe(s => (this.students = s));
   }
   protected deleteByParamsPromise(item: any): Promise<ResponseData<boolean>> {
     return firstValueFrom(this.Service.delete(item));

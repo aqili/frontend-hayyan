@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { BaseComponent } from '@base/base.component';
-import { ExperimentService } from '@proxy/experiments';
+import { StudentHistoryExperimentsService } from '@proxy/application/services/student-history-experiments.service';
+
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,7 +12,6 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [ CommonModule],
   templateUrl: './student-exper-tries-details.component.html',
-  styleUrl: './student-exper-tries-details.component.scss'
 })
 export class StudentExperTriesDetailsComponent extends BaseComponent implements OnInit {
 
@@ -25,8 +25,8 @@ export class StudentExperTriesDetailsComponent extends BaseComponent implements 
   iframeUrl: SafeResourceUrl | null = null; // Use SafeResourceUrl
 
 
-  get Service(): ExperimentService {
-    return this.getByInjector(ExperimentService);
+  get Service(): StudentHistoryExperimentsService {
+    return this.getByInjector(StudentHistoryExperimentsService);
   }
   
   constructor(private route: ActivatedRoute ,    private sanitizer: DomSanitizer ) {

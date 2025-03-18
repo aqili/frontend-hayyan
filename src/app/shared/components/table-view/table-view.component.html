@@ -6,7 +6,7 @@
           type="text"
           class="form-control search-input"
           [(ngModel)]="searchValue"
-          placeholder="{{ '::search' | abpLocalization }} {{ ' ...' }}"
+          placeholder="{{ '::Search' | abpLocalization }} {{ ' ...' }}"
         />
         <ng-select
           #select
@@ -15,7 +15,7 @@
           bindLabel="displayName"
           placeholder="{{ '::searchBy' | abpLocalization }}"
           [(ngModel)]="selectedFilter"
-          [ngStyle]="{ 'min-width': '300px'}"
+          [ngStyle]="{ 'min-width': '300px' }"
         >
           <ng-template ng-option-tmp let-item="item" let-index="index">
             <span class="option-span">
@@ -25,7 +25,7 @@
         </ng-select>
       </div>
       <button (click)="onClickSearch()" class="btn btn-primary view-btn list-view">
-        {{ '::search' | abpLocalization }}
+        {{ '::Search' | abpLocalization }}
       </button>
     </div>
   </ng-container>
@@ -35,14 +35,68 @@
   *ngIf="tableConfig?.uploadExcelApi"
   [apiUrl]="tableConfig?.uploadExcelApi"
 ></app-upload-excel>
-<a *ngIf="tableConfig?.pathExampleExcel" [href]="tableConfig?.pathExampleExcel">{{
-  '::donlowadexceltemplate' | abpLocalization
-}}</a>
+<div>
+  <a
+    *ngIf="tableConfig?.pathExampleExcel"
+    [href]="tableConfig?.pathExampleExcel"
+    style="
+      font-weight: bolder;
+      font-size: medium;
+      color: blue;
+      margin: 10px;
+      text-decoration: underline;
+      cursor: pointer;
+    "
+    >{{ '::donlowadexceltemplate' | abpLocalization }}</a
+  >
+</div>
+<br />
+<ngx-datatable
+  [rows]="tableData"
+  [count]="totalCount"
+  [list]="ListService"
+  [headerHeight]="50"
+  [scrollbarH]="true"
+  [columnMode]="'force'"
+  [rowHeight]="60"
+  default
+  class="modern-table"
+>
+  <ng-container *ngFor="let col of tableConfig.columns">
+    <ngx-datatable-column [name]="'::' + col.title | abpLocalization" [prop]="col.dataProperty">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <ng-container [ngSwitch]="col.type">
+          <ng-container *ngSwitchCase="ColumnTypeEn.DateOnly">
+            {{ row[col.dataProperty] | date: 'dd/MM/yyyy' }}
+          </ng-container>
+          <ng-container *ngSwitchCase="ColumnTypeEn.CheckBox">
+            <div class="status-toggle">
+              <label class="status-label" [class.active]="row[col.dataProperty]">{{
+                (row[col.dataProperty] ? '::Active' : '::Inactive') | abpLocalization
+              }}</label>
+            </div>
+          </ng-container>
+          <ng-container *ngSwitchCase="ColumnTypeEn.Image">
+            <div class="image-wrapper">
+              <img
+                [src]="row[col.dataProperty]"
+                alt="Image"
+                class="table-image"
+                onerror="this.src='assets/default-image.png'"
+              />
+            </div>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            {{ row[col.dataProperty] }}
+          </ng-container>
+        </ng-container>
+      </ng-template>
+    </ngx-datatable-column>
+  </ng-container>
 
-<ngx-datatable [rows]="tableData" [count]="totalCount" [list]="ListService" default>
   <ngx-datatable-column [name]="'::Actions' | abpLocalization" [maxWidth]="150" [sortable]="false">
     <ng-template let-row="row" ngx-datatable-cell-template>
-      <div ngbDropdown container="body" class="d-inline-block">
+      <div ngbDropdown container="body" class="d-inline-block" style="margin-top: 17px">
         <button
           class="btn btn-primary btn-sm dropdown-toggle"
           ngbDropdownToggle
@@ -66,22 +120,4 @@
       </div>
     </ng-template>
   </ngx-datatable-column>
-
-  <ng-container *ngFor="let col of tableConfig.columns">
-    <ngx-datatable-column [name]="'::' + col.title | abpLocalization" [prop]="col.dataProperty">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <ng-container [ngSwitch]="col.type">
-          <ng-container *ngSwitchCase="ColumnTypeEn.DateOnly">
-            {{ row[col.dataProperty] | date : 'dd/MM/yyyy' }}
-          </ng-container>
-          <ng-container *ngSwitchCase="ColumnTypeEn.CheckBox">
-            <input type="checkbox" [checked]="row[col.dataProperty]" disabled />
-          </ng-container>
-          <ng-container *ngSwitchDefault>
-            {{ row[col.dataProperty] }}
-          </ng-container>
-        </ng-container>
-      </ng-template>
-    </ngx-datatable-column>
-  </ng-container>
 </ngx-datatable>

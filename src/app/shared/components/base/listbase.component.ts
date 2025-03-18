@@ -92,23 +92,23 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
 
   protected add() {}
   onDelete(item) {
-    this.getConfirmationWarnModal('delete', 'Delete', () => {
+    this.getConfirmationWarnModal(this.LocalizationService.instant('::Delete'), this.LocalizationService.instant('::Delete'), () => {
       this.DeleteByParams(item.id);
     });
   }
   onActive(item) {
-    this.getConfirmationWarnModal('Active', 'Active', () => {
+    this.getConfirmationWarnModal(this.LocalizationService.instant('::Active'), this.LocalizationService.instant('::Active'), () => {
       this.ActiveByParams(item.id);
     });
   }
 
   onInActive(item) {
-    this.getConfirmationWarnModal('InActive', 'InActive', () => {
+    this.getConfirmationWarnModal( this.LocalizationService.instant('::InActive'), this.LocalizationService.instant('::InActive'), () => {
       this.InActiveByParams(item.id);
     });
   }
   sendActiveEmail(item) {
-    this.getConfirmationWarnModal('Send Active Email ?', 'Active Email', () => {
+    this.getConfirmationWarnModal(this.LocalizationService.instant('::SendActiveEmail'), this.LocalizationService.instant('::ActiveEmail'), () => {
       this.InSendActiveByParams(item.id);
     });
   }

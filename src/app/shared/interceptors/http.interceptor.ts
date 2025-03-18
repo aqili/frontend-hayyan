@@ -24,14 +24,14 @@ export class MyHttpInterceptor implements HttpInterceptor {
 
     // add custom header
     const customReq = request.clone({});
-    this.logger.info('processing request', customReq);
+    //this.logger.info('processing request', customReq);
 this.loaderService.show();
     // pass on the modified request object
     return next.handle(customReq).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           event = event.clone();
-          this.logger.info('processing response', event);
+          //this.logger.info('processing response', event);
           this.loaderService.hide();
 
         }
@@ -43,7 +43,7 @@ this.loaderService.show();
         this.loaderService.hide();
 
         if (response instanceof HttpErrorResponse) {
-          this.logger.error('processing http error', response);
+          //this.logger.error('processing http error', response);
         }
         this.loaderService.hide();
 

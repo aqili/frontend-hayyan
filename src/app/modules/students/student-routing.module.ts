@@ -5,48 +5,40 @@ import { StudentComponent } from './student.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { ShowExperimentComponent } from './show-experiment/show-experiment.component';
 import { AppLayout } from '@layouts/component/app.layout';
-
-//const routes: Routes = [
-//  { 
-//    path: '', 
-//    component: AppLayout,
-//    children: [
-//      {
-//        path: '',
-//        component: StudentComponent,
-//        canActivate: [authGuard, permissionGuard],
-//      }
-//    ]
-//  },
-//];
-
-
+import { StudentHistoryExperimentsComponent } from './History-Experiments/StudentHistoryExperimentsComponent';
+import { AdminInstractorAuthGuard } from '@shared/guards/admin-instractor-guard.guard';
+import { StudentAuthGuard } from '@shared/guards/student-guard.guard';
 
 const routes: Routes = [
-  //{ path: '', component: StudentComponent, canActivate: [authGuard, permissionGuard] },
-  { path: 'course', component: CourseDetailsComponent, canActivate: [authGuard, permissionGuard] },
   {
-    path: 'experiment',
-    component: CourseDetailsComponent,
-    canActivate: [authGuard, permissionGuard],
-  },
-  {
-    path: 'show-experiment',
-    component: ShowExperimentComponent,
-    canActivate: [authGuard, permissionGuard],
-  },
-  { 
     path: '', 
     component: AppLayout,
     children: [
       {
         path: '',
         component: StudentComponent,
-        canActivate: [authGuard, permissionGuard],
-      }
+        canActivate: [authGuard, permissionGuard ,AdminInstractorAuthGuard],
+      },
+      {
+        path: 'history-experiment',
+        component: StudentHistoryExperimentsComponent,
+        canActivate: [authGuard, permissionGuard ,AdminInstractorAuthGuard],
+      },
+      { path: 'course', component: CourseDetailsComponent, 
+        canActivate: [authGuard, permissionGuard , StudentAuthGuard] },
+      {
+        path: 'experiment',
+        component: CourseDetailsComponent,
+        canActivate: [authGuard, permissionGuard,StudentAuthGuard],
+      },
+      {
+        path: 'show-experiment',
+        component: ShowExperimentComponent,
+        canActivate: [authGuard, permissionGuard,StudentAuthGuard],
+      },
     ]
   },
-];
+]
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

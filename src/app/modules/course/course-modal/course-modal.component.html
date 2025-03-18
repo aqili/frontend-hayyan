@@ -10,12 +10,13 @@
   >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <ng-template #abpHeader>
-        <h3>{{'::AddCourse' | abpLocalization }}</h3>
+        <h3>{{ '::AddCourse' | abpLocalization }}</h3>
       </ng-template>
 
       <ng-template #abpBody>
         <div class="mt-2">
-          <label for="course-name">{{ '::Name' | abpLocalization }}</label><span> * </span>
+          <label for="course-name">{{ '::Name' | abpLocalization }}</label
+          ><span> * </span>
           <input
             type="text"
             id="course-name"
@@ -25,7 +26,8 @@
           />
         </div>
         <div class="mt-2">
-          <label>{{ '::StartDate' | abpLocalization }}</label><span> * </span>
+          <label>{{ '::StartDate' | abpLocalization }}</label
+          ><span> * </span>
           <input
             #datepicker="ngbDatepicker"
             class="form-control"
@@ -37,7 +39,8 @@
         </div>
 
         <div class="mt-2">
-          <label>{{ '::EndDate' | abpLocalization }}</label><span> * </span>
+          <label>{{ '::EndDate' | abpLocalization }}</label
+          ><span> * </span>
           <input
             #endDatedatepicker="ngbDatepicker"
             class="form-control"
@@ -56,7 +59,7 @@
           <input type="text" class="form-control" formControlName="description" />
         </div>
         <div class="mt-2">
-          <label for="book-type">{{'::Menu:Experiments' | abpLocalization}}</label>
+          <label for="book-type">{{ '::Menu:Experiments' | abpLocalization }}</label>
           <ng-select
             [items]="experiments"
             bindLabel="name"
@@ -100,7 +103,11 @@
           {{ '::Close' | abpLocalization }}
         </button>
 
-        <button (click)="onSubmit()" class="btn btn-primary col-md-5 ml-2">
+        <button
+          [disabled]="form.invalid || form.pristine"
+          (click)="onSubmit()"
+          class="btn btn-primary col-md-5 ml-2"
+        >
           {{ '::btn_Save' | abpLocalization }}
         </button>
       </ng-template>

@@ -14,9 +14,10 @@ import { StudentComponent } from './student.component';
 import { StudentModalComponent } from './student-modal/student-modal.component';
 import { ShowExperimentComponent } from './show-experiment/show-experiment.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { StudentHistoryExperimentsComponent } from './History-Experiments/StudentHistoryExperimentsComponent';
 
 @NgModule({
-  declarations: [StudentComponent, StudentModalComponent,CourseDetailsComponent,ShowExperimentComponent],
+  declarations: [StudentComponent, StudentModalComponent,CourseDetailsComponent,ShowExperimentComponent , StudentHistoryExperimentsComponent],
   imports: [
     StudentRoutingModule,
     SharedModule,

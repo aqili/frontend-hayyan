@@ -38,7 +38,7 @@ export class InstructorModalComponent extends BaseModalComponent implements OnIn
       ],
       telephone: ['', [Validators.minLength(8), Validators.maxLength(13)]],
       id: Number,
-      userType: [UserType.student],
+      userType: [UserType.Student],
       appUserId: String,
     });
   }

@@ -65,7 +65,7 @@ export class CourseModalComponent extends BaseModalComponent implements OnInit {
     this.form = this.FormBuilder.group(
       {
         name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(200)]],
-        description: [null, Validators.maxLength(500)],
+        description: [null, [Validators.maxLength(500), Validators.required]],
         startDate: [
           this.selectedCourse.startDate ? new Date(this.selectedCourse.startDate) : null,
           Validators.required,
@@ -74,7 +74,7 @@ export class CourseModalComponent extends BaseModalComponent implements OnInit {
           this.selectedCourse.endDate ? new Date(this.selectedCourse.endDate) : null,
           Validators.required,
         ],
-        isActive: [null],
+        isActive: [true],
         experimentIds: [],
         groupId: [null, Validators.required],
         instractorId: [null, Validators.required],

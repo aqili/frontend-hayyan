@@ -17,7 +17,8 @@
     (change)="onFileSelected($event)"
     style="display: none"
   />
-  <label (click)="fileInput.click()" class="custom-file-input">
+  <button (click)="fileInput.click()" class="custom-file-input">
     {{ '::uploadexcel' | abpLocalization }}
-  </label>
+  </button>
+  <br />
 </div>

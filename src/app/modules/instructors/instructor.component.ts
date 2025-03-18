@@ -28,6 +28,7 @@ import { InstructorModalComponent } from './instructor-modal/instructor-modal.co
 @Component({
   selector: 'app-instructor',
   templateUrl: './instructor.component.html',
+  styleUrls: ['./instructor.component.scss'],
   providers: [ListService, { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }],
 })
 export class InstructorComponent
@@ -101,22 +102,22 @@ export class InstructorComponent
     uploadExcelApi: '/api/app/instractor/upload-excel-user',
     searchColumnFilter: [
       {
-        displayName: 'FirstName',
+        displayName: this.LocalizationService.instant('::Name'),
         name: 'FirstName',
         filterOptionType: FilterOptionTypeEnum.Text,
       },
       {
-        displayName: 'Email',
+        displayName: this.LocalizationService.instant('::Email'),
         name: 'Email',
         filterOptionType: FilterOptionTypeEnum.Text,
       },
       {
-        displayName: 'Course Name',
+        displayName: this.LocalizationService.instant('::CourseName'),
         name: 'CourseInstractorGroups.Course.Name',
         filterOptionType: FilterOptionTypeEnum.Text,
       },
       {
-        displayName: 'Group Name',
+        displayName: this.LocalizationService.instant('::GroupName'),
         name: 'CourseInstractorGroups.Group.Name',
         filterOptionType: FilterOptionTypeEnum.Text,
       },
@@ -142,7 +143,11 @@ export class InstructorComponent
     return firstValueFrom(this.Service.sendActiveEmailById(item));
   }
   add() {
-    var mod = this.ModalService.open(InstructorModalComponent);
+    var mod = this.ModalService.open(InstructorModalComponent, {
+      size: 'lg', // Options: 'sm', 'md' (default), 'lg', 'xl'
+      fullscreen: true,
+      windowClass: 'custom-modal-class'
+    });
     mod.componentInstance.afterCloseModal = () => {
       this.refreshData();
     };
