@@ -1,8 +1,10 @@
-<input type="button" value="تحديث" (click)="refreshDashboard()" style="margin: 30px;"/>
+<button class="btn btn-primary mb-2" (click)="refreshDashboard()">
+  <i class="fas fa-sync-alt mx-1"></i>
+  تحديث
+</button>
 <div class="grid grid-cols-12 gap-8">
-   
 <div class="col-span-12 lg:col-span-6 xl:col-span-3">
-    <a href="./courses">
+    <a [href]="isStudent() ? './student-courses' :'./courses'">
     <div class="card mb-0">
         <div class="flex justify-between mb-4">
             <div>
@@ -70,11 +72,11 @@
     </a>
 </div>
 <div class="col-span-12 lg:col-span-6 xl:col-span-3">
-    <a href="./experiments">
+    <a [href]=" isStudent() ? './students/history-experiment': './experiments'">
     <div class="card mb-0">
         <div class="flex justify-between mb-4">
             <div>
-                <span class="block text-muted-color font-medium mb-4">{{'::Menu:Experiments' | abpLocalization}}</span>
+                <span class="block text-muted-color font-medium mb-4">{{'::ExperimentsCount' | abpLocalization}}</span>
                 <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{dashboard.experiments}}</div>
             </div>
             <div class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
@@ -85,5 +87,9 @@
         <span class="text-muted-color">responded</span> -->
     </div>
     </a>
+</div>
+
+<div class="col-span-12 lg:col-span-12 xl:col-span-12" *ngIf="isStudent() && dashboard.courses == 0 && dashboard.groups == 0">
+    <p style="font-size: x-large;">{{'::NoCoursesOrGroups' | abpLocalization}}</p>
 </div>
 </div>

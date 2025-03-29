@@ -24,13 +24,19 @@ import { UserService } from '../../shared/service/user.service';
       >
         <i class="pi pi-bars"></i>
       </button>
-      <a class="layout-topbar-logo" routerLink="/"> {{this.currentLanguage==="ar"?"حيان":"Hayyan"}} </a>
+      <a class="layout-topbar-logo" routerLink="/">
+        <img
+          src="./assets/wp-content/uploads/2024/11/Group1171275980.svg"
+          alt="logo"
+          class="w-50"
+          loading="lazy"
+        />
+      </a>
     </div>
 
-    <div class="layout-topbar-actions">
-    <h5>{{userService?.getCurrentUser()?.name}}</h5>
+    <div class="layout-topbar-actions align-items-center">
+      <h6 class="mb-0">{{ userService?.getCurrentUser()?.name }}</h6>
       <div class="layout-config-menu">
-
         <div class="relative">
           <!-- <button
             class="layout-topbar-action layout-topbar-action-highlight"
@@ -57,12 +63,12 @@ import { UserService } from '../../shared/service/user.service';
       >
         <i class="pi pi-ellipsis-v"></i>
       </button>
-      
-      
+
       <div class="layout-topbar-menu hidden lg:block">
         <div class="layout-topbar-menu-content">
-        <button (click)="languageToggle()"> {{this.currentLanguage==="ar"?"En":"عربي"}} </button>
-         
+          <button type="button" class="layout-topbar-action" (click)="languageToggle()">
+            {{ this.currentLanguage === 'ar' ? 'En' : 'عربي' }}
+          </button>
 
           <button
             title="logOut"
@@ -71,7 +77,7 @@ import { UserService } from '../../shared/service/user.service';
             type="button"
             class="layout-topbar-action"
           >
-            <i class="pi pi-sign-out"></i>
+            <i class="pi pi-sign-out mx-1"></i>
             <span>logOut</span>
           </button>
           <button
@@ -85,7 +91,6 @@ import { UserService } from '../../shared/service/user.service';
             <span>login</span>
           </button>
         </div>
-        
       </div>
     </div>
   </div>`,
@@ -95,19 +100,17 @@ export class AppTopbar {
   constructor(
     public layoutService: LayoutService,
     private authService: AuthService,
-    private stateService :SessionStateService,
-    public userService:UserService
+    private stateService: SessionStateService,
+    public userService: UserService,
   ) {}
   get hasLoggedIn(): boolean {
     return this.authService.isAuthenticated;
   }
-  get currentLanguage()
-  {
-    return this.stateService.getLanguage()
-  } 
-  languageToggle()
-  {
-    this.stateService.setLanguage(this.currentLanguage==="ar"?"en":"ar");
+  get currentLanguage() {
+    return this.stateService.getLanguage();
+  }
+  languageToggle() {
+    this.stateService.setLanguage(this.currentLanguage === 'ar' ? 'en' : 'ar');
     window.location.reload();
   }
   toggleDarkMode() {

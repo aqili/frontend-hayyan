@@ -1,0 +1,79 @@
+
+// text-align: center;
+// color: #575757;
+// font-family: "Lalezar", Sans-serif;
+// font-size: 38px;
+// font-weight: 400;
+
+.info-box {
+  background-image: linear-gradient(180deg, #9B519B 0%, #B87EB6 100%);
+  justify-content: center;
+    align-items: center;
+    border-radius: 14px 14px 14px 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+  padding: 100px 0;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  .motivation-title {
+    color: #FFFFFF;
+      font-family: "Lalezar", Sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+  }
+  .contact-info {
+    p {
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      color: #FFFFFF;
+      transition: color 0.3s;
+      font-size: 16px;
+    }
+  }
+
+  .social-media {
+    a {
+      font-size: 20px;
+      color: #fff;
+    }
+    .e-fab-x-twitter {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+  }
+}
+
+
+.form-box {
+  width: 35%;
+  margin: 100px auto;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  label {
+    font-size: 16px !important;
+    color: #333 !important;
+    margin-bottom: 5px !important;
+    font-weight: bold !important;
+  }
+  .submit-button {
+    background: linear-gradient(90deg, #9B519B 0%, #B87EB6 100%) !important;
+    box-shadow: 0px 5.111px 8.944px -1.278px rgba(0, 0, 0, 0.11), 0px 2.556px 5.111px -1.278px rgba(0, 0, 0, 0.07) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 10px 20px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    transition: background-color 0.3s !important;
+  }
+}

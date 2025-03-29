@@ -1,5 +1,5 @@
-<div class="col-12 p-2 mb-3">
-  <ng-container *ngIf="tableConfig?.hideSearch !== true">
+<div class="col-12 p-2 mb-3" *ngIf="tableConfig?.hideSearch !== true">
+  <ng-container>
     <div class="d-flex gap-3">
       <div class="d-flex gap-2">
         <input
@@ -30,27 +30,23 @@
     </div>
   </ng-container>
 </div>
-<app-upload-excel
-  (uploadResponseEvent)="onRowActionClicked(ActionType.ExcelResponse, null)"
-  *ngIf="tableConfig?.uploadExcelApi"
-  [apiUrl]="tableConfig?.uploadExcelApi"
-></app-upload-excel>
-<div>
+<div class="d-flex gap-3 align-items-center justify-content-end mb-2">
+  <app-upload-excel
+    (uploadResponseEvent)="onRowActionClicked(ActionType.ExcelResponse, null)"
+    *ngIf="tableConfig?.uploadExcelApi"
+    [apiUrl]="tableConfig?.uploadExcelApi"
+  ></app-upload-excel>
+
   <a
     *ngIf="tableConfig?.pathExampleExcel"
     [href]="tableConfig?.pathExampleExcel"
-    style="
-      font-weight: bolder;
-      font-size: medium;
-      color: blue;
-      margin: 10px;
-      text-decoration: underline;
-      cursor: pointer;
-    "
-    >{{ '::donlowadexceltemplate' | abpLocalization }}</a
+    class="btn btn-success"
   >
+    <i class="fas fa-download mx-1"></i>
+    {{ '::donlowadexceltemplate' | abpLocalization }}
+  </a>
 </div>
-<br />
+
 <ngx-datatable
   [rows]="tableData"
   [count]="totalCount"
@@ -60,7 +56,7 @@
   [columnMode]="'force'"
   [rowHeight]="60"
   default
-  class="modern-table"
+  class="modern-table p-3"
 >
   <ng-container *ngFor="let col of tableConfig.columns">
     <ngx-datatable-column [name]="'::' + col.title | abpLocalization" [prop]="col.dataProperty">

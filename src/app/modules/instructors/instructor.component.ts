@@ -145,7 +145,7 @@ export class InstructorComponent
   add() {
     var mod = this.ModalService.open(InstructorModalComponent, {
       size: 'lg', // Options: 'sm', 'md' (default), 'lg', 'xl'
-      fullscreen: true,
+      // fullscreen: true,
       windowClass: 'custom-modal-class'
     });
     mod.componentInstance.afterCloseModal = () => {

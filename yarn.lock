@@ -5673,10 +5673,10 @@ inquirer@^9.2.12:
     wrap-ansi "^6.2.0"
     yoctocolors-cjs "^2.1.2"
 
-intl-tel-input@^25.3.0:
-  version "25.3.0"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-25.3.0.tgz#a22fcb0c8058f9d9ef071849d86e205283df14b8"
-  integrity sha512-w45O+cMpltGvZPdq36wkcpgCGIuOsihqrklJdvV2hYwKOT1rQuLjX8wjFQXLIs7ku0HK0qAU0MT6+DMh659qBw==
+intl-tel-input@^18.1.6:
+  version "18.5.3"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-18.5.3.tgz#20b18431cb802d33c118f52e332e218e641ec09b"
+  integrity sha512-ncFqSpkdGf2YC/FvAiwBH44KAeRG8L7aqDODEpOvMAT3ZpBtvc/WtwaQ/6X4+HKDTlGkobdBjr6P3nAMwO8jtA==
 
 ip-address@^9.0.5:
   version "9.0.5"
@@ -6764,10 +6764,10 @@ ngx-countdown@^19.0.0:
   dependencies:
     tslib "^2.3.0"
 
-ngx-intl-tel-input@^17.0.0:
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-intl-tel-input/-/ngx-intl-tel-input-17.0.0.tgz#c2b0adb2809731de25703cbc6f31202d176e35a1"
-  integrity sha512-yfxZ3N2h4w71I0w/OxEPaHwFMrrgnK9dG0HzRFfIL1uNELU5t3Fmp09Zr7YlclOfkHPzukwItKzerUWh4vlEBA==
+ngx-intl-tel-input@^3.2.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/ngx-intl-tel-input/-/ngx-intl-tel-input-3.2.1.tgz#84282cb90bdb7e6bed13844b71a5eeb5b3768540"
+  integrity sha512-4wPBwNHG9zgthl4NT9Vjeb5J1CNGCZXh2Go3Th8Rl3cSGqZ6p5r1SLIhqQs/XgBZNoUrs1Od3I0R+JSWqa9/bg==
   dependencies:
     tslib "^2.3.0"
 
@@ -8470,7 +8470,16 @@ streamroller@^3.1.5:
     debug "^4.3.4"
     fs-extra "^8.1.0"
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -8511,7 +8520,14 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -9207,7 +9223,7 @@ word-wrap@^1.2.5:
   resolved "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.5.tgz"
   integrity sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
@@ -9220,6 +9236,15 @@ wrap-ansi@^6.2.0:
   version "6.2.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-6.2.0.tgz"
   integrity sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
   dependencies:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"

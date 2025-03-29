@@ -1,22 +1,80 @@
 :root {
-    --primary-color: var(--p-primary-color);
-    --primary-contrast-color: var(--p-primary-contrast-color);
-    --text-color: var(--p-text-color);
-    --text-color-secondary: var(--p-text-muted-color);
-    --surface-border: var(--p-content-border-color);
-    --surface-card: var(--p-content-background);
-    --surface-hover: var(--p-content-hover-background);
-    --surface-overlay: var(--p-overlay-popover-background);
-    --transition-duration: var(--p-transition-duration);
-    --maskbg: var(--p-mask-background);
-    --content-border-radius: var(--p-content-border-radius);
-    --layout-section-transition-duration: 0.2s;
-    --element-transition-duration: var(--p-transition-duration);
-    --focus-ring-width: var(--p-focus-ring-width);
-    --focus-ring-style: var(--p-focus-ring-style);
-    --focus-ring-color: var(--p-focus-ring-color);
-    --focus-ring-offset: var(--p-focus-ring-offset);
-    --focus-ring-shadow: var(--p-focus-ring-shadow);
+  --primary-color: var(--p-primary-color);
+  --primary-contrast-color: var(--p-primary-contrast-color);
+  --text-color: var(--p-text-color);
+  --text-color-secondary: var(--p-text-muted-color);
+  --surface-border: var(--p-content-border-color);
+  --surface-card: var(--p-content-background);
+  --surface-hover: var(--p-content-hover-background);
+  --surface-overlay: var(--p-overlay-popover-background);
+  --transition-duration: var(--p-transition-duration);
+  --maskbg: var(--p-mask-background);
+  --content-border-radius: var(--p-content-border-radius);
+  --layout-section-transition-duration: 0.2s;
+  --element-transition-duration: var(--p-transition-duration);
+  --focus-ring-width: var(--p-focus-ring-width);
+  --focus-ring-style: var(--p-focus-ring-style);
+  --focus-ring-color: var(--p-focus-ring-color);
+  --focus-ring-offset: var(--p-focus-ring-offset);
+  --focus-ring-shadow: var(--p-focus-ring-shadow);
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager li,
+.ngx-datatable .datatable-footer .datatable-pager .pager li a {
+  font-size: 14px !important;
+  padding: 4px 0 !important;
+}
+
+.datatable-body-row {
+  border-bottom: 1px solid #f1f3f5;
+
+  &:hover {
+    background: #f8fafc !important;
+  }
+
+  .datatable-body-cell {
+    padding: 0 1rem;
+    vertical-align: middle;
+    display: flex !important;
+    align-items: center;
+  }
 }
 
 
+.datatable-header {
+  background: #f8f9fa;
+  font-weight: 500;
+  color: #495057;
+  border-bottom: 2px solid #e9ecef;
+  display: flex !important;
+  align-items: center;
+}
+
+.datatable-header-cell {
+  padding: 0 1rem;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.form-control::placeholder {
+  font-size: 12px !important;
+}
+
+.rtl-support {
+  padding-left: 50px !important;
+}
+
+.iti__country-list {
+  position: absolute;
+  z-index: 2;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 -1px;
+  // box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+  max-height: 200px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}

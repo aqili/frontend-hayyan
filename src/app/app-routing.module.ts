@@ -22,6 +22,14 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
   {
+    path: 'about-us',
+    loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule),
+  },
+  {
+    path: 'contact-us',
+    loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule),
+  },
+  {
     path: 'groups',
     canActivate:[AdminInstractorAuthGuard],
     loadChildren: () => import('./modules/groups/group.module').then(m => m.GroupModule),
@@ -81,7 +89,7 @@ const routes: Routes = [
     //     component: Dashboard
     //   }
     // ]
-  }
+  },
 ];
 
 @NgModule({

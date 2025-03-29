@@ -1131,6 +1131,8 @@ div.hfe-nav-menu,
     .hfe-nav-menu__breakpoint-tablet .hfe-nav-menu{
         width: 100%;
         margin-right:0px;
+        display: flex;
+        flex-direction: column;
     }
 
     .hfe-nav-menu__breakpoint-tablet .hfe-layout-horizontal .hfe-nav-menu__toggle,
