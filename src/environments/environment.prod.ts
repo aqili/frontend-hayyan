@@ -6,11 +6,12 @@ const baseUrl = 'https://hayyan-web-9715979060.asia-south1.run.app';
 
 const oAuthConfig = {
   issuer: 'https://api-hayyan.el.r.appspot.com/',
-  redirectUri: baseUrl,
+  redirectUri: baseUrl + '/dashboard',
   clientId: 'Hayaan_App',
   responseType: 'code',
   scope: 'offline_access Hayaan',
   requireHttps: true,
+  postLogoutRedirectUri: baseUrl,
 };
 
 export const environment = {
