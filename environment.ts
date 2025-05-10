@@ -6,11 +6,12 @@ const baseUrl = 'http://localhost:4200';
 
 const oAuthConfig = {
   issuer: 'https://localhost:44388/',
-  redirectUri: baseUrl,
+  redirectUri: baseUrl + '/dashboard',
   clientId: 'Hayaan_App',
   responseType: 'code',
   scope: 'offline_access Hayaan',
   requireHttps: true,
+    postLogoutRedirectUri: baseUrl,
 };
 
 export const environment = {
