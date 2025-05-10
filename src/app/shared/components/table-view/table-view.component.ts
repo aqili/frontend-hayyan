@@ -55,16 +55,14 @@ export class TableViewComponent extends BaseComponent implements OnInit {
   onClickSearch() {
     let search = {};
 
-    if (this.selectedFilter) {
-      search = {
-        columnName: this.selectedFilter.name,
-        columnValue: this.searchValue,
-      };
+    search = {
+      columnName: this.selectedFilter?.name,
+      columnValue: this.searchValue,
+    };
 
-      this.searchFilter.emit(search);
-      if (!this.selectedFilter) {
-        this.searchValue = '';
-      }
+    this.searchFilter.emit(search);
+    if (!this.selectedFilter) {
+      this.searchValue = '';
     }
   }
 }

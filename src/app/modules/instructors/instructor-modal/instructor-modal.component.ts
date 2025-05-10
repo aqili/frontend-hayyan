@@ -6,10 +6,9 @@ import { BaseModalComponent } from '@base/base-modal.component';
 import { ResponseData } from '@proxy/domain/shared/common';
 import { UserType } from '@proxy/domain/shared/enums';
 import { InstractorService } from '@proxy/services';
+import { InstractorDto } from '@proxy/users';
 
-import { InstractorDto, UserDto } from '@proxy/users';
-
-import { dateRangeValidator } from '@shared/service/form/form-validation';
+import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
 import { firstValueFrom } from 'rxjs';
 
@@ -21,12 +20,20 @@ export class InstructorModalComponent extends BaseModalComponent implements OnIn
   get Service(): InstractorService {
     return this.getByInjector(InstractorService);
   }
+  separateDialCode = false;
+  SearchCountryField = SearchCountryField;
+  CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+  preferredCountries: CountryISO[] = [CountryISO.SaudiArabia];
   instructorId = null;
   selectedInstructor = {} as InstractorDto; // reset the selected instructor
   isEdit = false;
   ngOnInit(): void {
     super.ngOnInit();
     if (this.instructorId) this.getByParams(this.instructorId);
+    if (this.isEdit) {
+      this.form.get('email')?.disable();
+    }
   }
   protected buildForm(): void {
     this.form = this.FormBuilder.group({
@@ -36,7 +43,7 @@ export class InstructorModalComponent extends BaseModalComponent implements OnIn
         '',
         [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(200)],
       ],
-      telephone: ['', [Validators.minLength(8), Validators.maxLength(13)]],
+      telephone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(13)]],
       id: Number,
       userType: [UserType.Student],
       appUserId: String,
@@ -50,5 +57,9 @@ export class InstructorModalComponent extends BaseModalComponent implements OnIn
   }
   protected getByParamsPromise(item: any): Promise<ResponseData<any>> {
     return firstValueFrom(this.Service.get(item));
+  }
+  protected beforeSave(): void {
+    if (this.isObject(this.f.telephone?.value))
+      this.f.telephone.setValue(this.f.telephone?.value?.e164Number);
   }
 }

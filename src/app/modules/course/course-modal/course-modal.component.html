@@ -59,10 +59,12 @@
         </label>
         <div class="form-group mt-3">
           <label for="course-price">{{ '::Description' | abpLocalization }}</label>
+          <span> * </span>
           <input type="text" class="form-control" placeholder="{{ '::Description' | abpLocalization }}" formControlName="description" />
         </div>
         <div class="mt-3">
           <label for="book-type">{{ '::Menu:Experiments' | abpLocalization }}</label>
+          <span> * </span>
           <ng-select
             [items]="experiments"
             bindLabel="name"
@@ -75,7 +77,8 @@
         </div>
 
         <div class="mt-3">
-          <label>group</label>
+          <label>{{ '::Menu:Groups' | abpLocalization }}</label>
+          <span> * </span>
           <ng-select
             [items]="groups"
             bindLabel="name"
@@ -88,7 +91,8 @@
         </div>
 
         <div class="mt-3">
-          <label>instructorId</label>
+          <label>{{ '::Menu:InstructorCourses' | abpLocalization }}</label>
+          <span> * </span>
           <ng-select
             [items]="instructors"
             bindLabel="name"

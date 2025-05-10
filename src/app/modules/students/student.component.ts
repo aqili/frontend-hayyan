@@ -47,6 +47,7 @@ export class StudentComponent extends ListBaseComponent<UserDto, ListSearchDto> 
       {
         title: 'Telephone',
         dataProperty: 'telephone',
+        cellClass: 'directionLtr',
       },
       {
         title: 'Email',

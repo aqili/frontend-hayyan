@@ -3,93 +3,141 @@
   تحديث
 </button>
 <div class="grid grid-cols-12 gap-8">
-<div class="col-span-12 lg:col-span-6 xl:col-span-3">
-    <a [href]="isStudent() ? './student-courses' :'./courses'">
-    <div class="card mb-0">
+  <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+    <a [href]="isStudent() ? './student-courses' : './courses'">
+      <div class="card mb-0">
         <div class="flex justify-between mb-4">
-            <div>
-                <span class="block text-muted-color font-medium mb-4">{{'::Menu:Courses' | abpLocalization}}</span><!---->
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{dashboard.courses}}</div>
+          <div>
+            <span class="block text-muted-color font-medium mb-4">{{
+              '::Menu:Courses' | abpLocalization
+            }}</span
+            ><!---->
+            <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+              {{ dashboard.courses }}
             </div>
-            <div class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
-                <i class="pi pi-shopping-cart text-blue-500 !text-xl"></i>
-            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-shopping-cart text-blue-500 !text-xl"></i>
+          </div>
         </div>
         <!-- <span class="text-primary font-medium">24 new </span>
         <span class="text-muted-color">since last visit</span>-->
-    </div> 
-</a>
-</div>
-<div class="col-span-12 lg:col-span-6 xl:col-span-3">
-    <a href="./groups">
-    <div class="card mb-0">
+      </div>
+    </a>
+  </div>
+  <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+    <a [href]="isStudent() ? null : './groups'" [class.pointer-events-none]="isStudent()">
+      <div
+        class="card mb-0"
+        [class.cursor-pointer]="!isStudent()"
+        [class.pointer-events-none]="isStudent()"
+      >
         <div class="flex justify-between mb-4">
-            <div>
-                <span class="block text-muted-color font-medium mb-4">{{'::Menu:Groups' | abpLocalization}}</span><!---->
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{dashboard.groups}}</div>
+          <div>
+            <span class="block text-muted-color font-medium mb-4">{{
+              '::Menu:Groups' | abpLocalization
+            }}</span
+            ><!---->
+            <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+              {{ dashboard.groups }}
             </div>
-            <div class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
-                <i class="pi pi-dollar text-orange-500 !text-xl"></i>
-            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-dollar text-orange-500 !text-xl"></i>
+          </div>
         </div>
         <!-- <span class="text-primary font-medium">%52+ </span>
         <span class="text-muted-color">since last week</span> -->
-    </div>
+      </div>
     </a>
-</div>
-<div class="col-span-12 lg:col-span-6 xl:col-span-3" *ngIf="!isStudent()">
+  </div>
+  <div class="col-span-12 lg:col-span-6 xl:col-span-3" *ngIf="!isStudent()">
     <a href="./students">
-    <div class="card mb-0">
+      <div class="card mb-0">
         <div class="flex justify-between mb-4">
-            <div>
-                <span class="block text-muted-color font-medium mb-4">{{'::Menu:Students' | abpLocalization}}</span><!--{{'::Students' | abpLocalization}}-->
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{dashboard.students}}</div>
+          <div>
+            <span class="block text-muted-color font-medium mb-4">{{
+              '::Menu:Students' | abpLocalization
+            }}</span
+            ><!--{{'::Students' | abpLocalization}}-->
+            <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+              {{ dashboard.students }}
             </div>
-            <div class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
-                <i class="pi pi-users text-cyan-500 !text-xl"></i>
-            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-users text-cyan-500 !text-xl"></i>
+          </div>
         </div>
         <!-- <span class="text-primary font-medium">520 </span>
         <span class="text-muted-color">newly registered</span> -->
-    </div>
+      </div>
     </a>
-</div>
-<div class="col-span-12 lg:col-span-6 xl:col-span-3" *ngIf="isAdmin()">
+  </div>
+  <div class="col-span-12 lg:col-span-6 xl:col-span-3" *ngIf="isAdmin()">
     <a href="./instructors">
-    <div class="card mb-0">
+      <div class="card mb-0">
         <div class="flex justify-between mb-4">
-            <div>
-                <span class="block text-muted-color font-medium mb-4">{{'::Menu:Instructors' | abpLocalization}}</span><!---->
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{dashboard.instructors}}</div>
+          <div>
+            <span class="block text-muted-color font-medium mb-4">{{
+              '::Menu:Instructors' | abpLocalization
+            }}</span
+            ><!---->
+            <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+              {{ dashboard.instructors }}
             </div>
-            <div class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
-                <i class="pi pi-users text-purple-500 !text-xl"></i>
-            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-users text-purple-500 !text-xl"></i>
+          </div>
         </div>
         <!-- <span class="text-primary font-medium">85 </span>
         <span class="text-muted-color">responded</span> -->
-    </div>
+      </div>
     </a>
-</div>
-<div class="col-span-12 lg:col-span-6 xl:col-span-3">
-    <a [href]=" isStudent() ? './students/history-experiment': './experiments'">
-    <div class="card mb-0">
+  </div>
+  <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+    <!-- <a [href]="isStudent() ? './students/history-experiment' : './experiments'"> -->
+    <a [href]="isStudent() ? null : './experiments'" [class.pointer-events-none]="isStudent()"  >
+      <div class="card mb-0"    [class.cursor-pointer]="!isStudent()"
+      [class.pointer-events-none]="isStudent()">
         <div class="flex justify-between mb-4">
-            <div>
-                <span class="block text-muted-color font-medium mb-4">{{'::ExperimentsCount' | abpLocalization}}</span>
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{dashboard.experiments}}</div>
+          <div>
+            <span class="block text-muted-color font-medium mb-4">{{
+              '::ExperimentsCount' | abpLocalization
+            }}</span>
+            <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+              {{ dashboard.experiments }}
             </div>
-            <div class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
-                <i class="pi pi-comment text-purple-500 !text-xl"></i>
-            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-comment text-purple-500 !text-xl"></i>
+          </div>
         </div>
         <!-- <span class="text-primary font-medium">85 </span>
         <span class="text-muted-color">responded</span> -->
-    </div>
+      </div>
     </a>
-</div>
+  </div>
 
-<div class="col-span-12 lg:col-span-12 xl:col-span-12" *ngIf="isStudent() && dashboard.courses == 0 && dashboard.groups == 0">
-    <p style="font-size: x-large;">{{'::NoCoursesOrGroups' | abpLocalization}}</p>
-</div>
+  <div
+    class="col-span-12 lg:col-span-12 xl:col-span-12"
+    *ngIf="isStudent() && dashboard.courses == 0 && dashboard.groups == 0"
+  >
+    <p style="font-size: x-large">{{ '::NoCoursesOrGroups' | abpLocalization }}</p>
+  </div>
 </div>

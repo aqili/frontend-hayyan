@@ -26,7 +26,7 @@
   }
 
   <div id="content" class="site-content">
-    <div class="">
+    <div class="" id="contact">
       <div class="d-flex flex-wrap gap-5 w-100">
         <div class="d-flex flex-column info-box gap-4">
           <div class="image-wrapper">
@@ -35,7 +35,7 @@
               class="img-responsive"
             />
           </div>
-          <p class="motivation-title">“لا تتــــردد فــــى متابعـــــة حساباتنـــــا”</p>
+          <p class="motivation-title">"لا تتــــردد فــــى متابعـــــة حساباتنـــــا"</p>
 
           <div class="d-flex gap-5 contact-info">
             <p>
@@ -66,31 +66,60 @@
           </div>
         </div>
         <div class="d-flex flex-column form-box">
-          <form class="contact-form">
+          <!-- Alert Messages -->
+          @if (submitSuccess) {
+            <div class="alert alert-success mt-3">
+              تم إرسال رسالتك بنجاح! سنقوم بالرد عليك في أقرب وقت ممكن.
+              <button type="button" class="btn-close" (click)="resetForm()"></button>
+            </div>
+          }
+          
+          @if (submitError) {
+            <div class="alert alert-danger mt-3">
+              {{ errorMessage }}
+              <button type="button" class="btn-close" (click)="submitError = false"></button>
+            </div>
+          }
+          
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
             <div class="form-group">
-              <label for="firstname">
+              <label for="firstName">
                 الاسم الأول
                 <span class="text-danger">*</span>
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="firstname"
+                id="firstName"
+                formControlName="firstName"
                 placeholder="ادخل اسمك الاول"
+                [ngClass]="{'is-invalid': isFieldInvalid('firstName')}"
               />
+              @if (isFieldInvalid('firstName')) {
+                <div class="invalid-feedback">
+                  الاسم الأول مطلوب
+                </div>
+              }
             </div>
 
             <div class="form-group">
-              <label for="lastname">
+              <label for="lastName">
                 الاسم العائلة
                 <span class="text-danger">*</span>
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="lastname"
+                id="lastName"
+                formControlName="lastName"
                 placeholder="ادخل اسم عائلتك"
+                [ngClass]="{'is-invalid': isFieldInvalid('lastName')}"
               />
+              @if (isFieldInvalid('lastName')) {
+                <div class="invalid-feedback">
+                  اسم العائلة مطلوب
+                </div>
+              }
             </div>
 
             <div class="form-group">
@@ -101,6 +130,7 @@
                 type="tel"
                 class="form-control"
                 id="phone"
+                formControlName="phone"
                 placeholder="ادخل رقم هاتفك"
               />
             </div>
@@ -114,8 +144,15 @@
                 type="email"
                 class="form-control"
                 id="email"
+                formControlName="email"
                 placeholder="ادخل عنوان بريدك الالكترونى"
+                [ngClass]="{'is-invalid': isFieldInvalid('email')}"
               />
+              @if (isFieldInvalid('email')) {
+                <div class="invalid-feedback">
+                  يرجى إدخال بريد إلكتروني صحيح
+                </div>
+              }
             </div>
 
 
@@ -127,11 +164,19 @@
                 class="form-control"
                 rows="10"
                 id="message"
+                formControlName="message"
                 placeholder="ادخل رسالتك ..."
               ></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary submit-button">ارسال</button>
+            <button 
+              type="submit" 
+              class="btn btn-primary submit-button"
+              [disabled]="submitting"
+            >
+              <span *ngIf="!submitting">ارسال</span>
+              <span *ngIf="submitting">جاري الإرسال...</span>
+            </button>
           </form>
         </div>
       </div>

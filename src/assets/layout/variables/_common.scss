@@ -78,3 +78,9 @@
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+
+
+[dir=rtl] .iti--allow-dropdown .iti__flag-container, [dir=rtl] .iti--separate-dial-code .iti__flag-container {
+  left: 0;
+  right: auto;
+}

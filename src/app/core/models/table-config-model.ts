@@ -44,6 +44,8 @@ export class Columns {
   title?: string;
   dataProperty?: string;
   type?: ColumnTypeEnum = ColumnTypeEnum.Text;
+  headerClass?: string;
+  cellClass?: string;
 }
 export interface AddBtn {
   show?: boolean;

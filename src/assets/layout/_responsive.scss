@@ -146,3 +146,28 @@ html[dir='rtl'] {
     }
    }
 }
+
+@media (max-width: 1024px) {
+  .e-con.e-flex>.e-con-inner {
+    flex-direction: row-reverse;
+  }
+  .elementor-39 .elementor-element.elementor-element-ddf1df7.elementor-element {
+    width: 100%;
+  }
+
+  .hfe-nav-menu__breakpoint-tablet .hfe-layout-horizontal .hfe-nav-menu__toggle, .hfe-nav-menu__breakpoint-tablet .hfe-layout-vertical .hfe-nav-menu__toggle {
+    position: relative;
+  }
+
+  #menu-1-ddf1df7 {
+    position: absolute;
+    width: 90vw;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #9b6baf;
+    padding: 12px;
+  }
+}
+
+

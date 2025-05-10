@@ -1,7 +1,14 @@
+<div *ngIf="experiments?.length === 0" class="no-experiments-message">
+  {{ '::NoExperimentsAvailable' | abpLocalization }}
+</div>
 <div *ngFor="let item of experiments">
   <h2>
     {{ item.arabicTitle }}
   </h2>
   <div [innerHTML]="item.arabicDescription"></div>
-  <input type="button" (click)="openExperiment(item)" value="{{'::StartNow' | abpLocalization}}" />
+  <input
+    type="button"
+    (click)="openExperiment(item)"
+    value="{{ '::StartNow' | abpLocalization }}"
+  />
 </div>

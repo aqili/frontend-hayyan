@@ -166,3 +166,9 @@ ngx-intl-tel-input.ng-invalid.ng-touched input {
   color: red;
   font-size: 0.875rem;
 }
+
+
+.directionLtr {
+  direction: ltr !important;
+  justify-content: right !important;
+}

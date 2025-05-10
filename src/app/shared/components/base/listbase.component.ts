@@ -92,25 +92,41 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
 
   protected add() {}
   onDelete(item) {
-    this.getConfirmationWarnModal(this.LocalizationService.instant('::Delete'), this.LocalizationService.instant('::Delete'), () => {
-      this.DeleteByParams(item.id);
-    });
+    this.getConfirmationWarnModal(
+      this.LocalizationService.instant('::Delete'),
+      this.LocalizationService.instant('::Delete'),
+      () => {
+        this.DeleteByParams(item.id);
+      },
+    );
   }
   onActive(item) {
-    this.getConfirmationWarnModal(this.LocalizationService.instant('::Active'), this.LocalizationService.instant('::Active'), () => {
-      this.ActiveByParams(item.id);
-    });
+    this.getConfirmationWarnModal(
+      this.LocalizationService.instant('::Active'),
+      this.LocalizationService.instant('::Active'),
+      () => {
+        this.ActiveByParams(item.id);
+      },
+    );
   }
 
   onInActive(item) {
-    this.getConfirmationWarnModal( this.LocalizationService.instant('::InActive'), this.LocalizationService.instant('::InActive'), () => {
-      this.InActiveByParams(item.id);
-    });
+    this.getConfirmationWarnModal(
+      this.LocalizationService.instant('::InActive'),
+      this.LocalizationService.instant('::InActive'),
+      () => {
+        this.InActiveByParams(item.id);
+      },
+    );
   }
   sendActiveEmail(item) {
-    this.getConfirmationWarnModal(this.LocalizationService.instant('::SendActiveEmail'), this.LocalizationService.instant('::ActiveEmail'), () => {
-      this.InSendActiveByParams(item.id);
-    });
+    this.getConfirmationWarnModal(
+      this.LocalizationService.instant('::SendActiveEmail'),
+      this.LocalizationService.instant('::ActiveEmail'),
+      () => {
+        this.InSendActiveByParams(item.id);
+      },
+    );
   }
   openModal(component: any, data?: any, options: NgbModalOptions = { size: 'xl' }) {
     const modalRef = this.ModalService.open(component, options);
@@ -239,14 +255,14 @@ export abstract class ListBaseComponent<T, S extends ListSearchDto>
   }
 
   onSearch(event) {
-    if (!this.isEmpty(event?.columnValue) && !this.isEmpty(event?.columnName)) {
-      this.someFilterValue = Object.assign({}, this.someFilterValue, {
-        columnName: event.columnName,
-        columnValue: event.columnValue,
-      });
+    //if (this.totalCount==0|(!this.isEmpty(event?.columnValue) && !this.isEmpty(event?.columnName))) {
+    this.someFilterValue = Object.assign({}, this.someFilterValue, {
+      columnName: event.columnName,
+      columnValue: event.columnValue,
+    });
 
-      this.ListService.page = 0;
-      this.refreshData();
-    }
+    this.ListService.page = 0;
+    this.refreshData();
+    // }
   }
 }

@@ -51,6 +51,7 @@ export class InstructorComponent
       {
         title: 'Telephone',
         dataProperty: 'telephone',
+        cellClass: 'directionLtr',
       },
       {
         title: 'Email',
@@ -146,7 +147,7 @@ export class InstructorComponent
     var mod = this.ModalService.open(InstructorModalComponent, {
       size: 'lg', // Options: 'sm', 'md' (default), 'lg', 'xl'
       // fullscreen: true,
-      windowClass: 'custom-modal-class'
+      windowClass: 'custom-modal-class',
     });
     mod.componentInstance.afterCloseModal = () => {
       this.refreshData();

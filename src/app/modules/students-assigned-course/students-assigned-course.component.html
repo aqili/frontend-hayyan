@@ -4,10 +4,16 @@
       <h5 class="card-title">{{ course.fullName }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ course.courseName }}</h6>
       <p class="card-text" (click)="openCourseDetails(course)">
-        {{'::StartDate' | abpLocalization }}: {{ course.courseStartDate }}<br />
-        {{'::EndDate' | abpLocalization}}: {{ course.courseEndDate }}<br />
-        {{'::Group' | abpLocalization }}: {{ course.groupName }}
+        {{ '::StartDate' | abpLocalization }}: {{ course.courseStartDate }}<br />
+        {{ '::EndDate' | abpLocalization }}: {{ course.courseEndDate }}<br />
+        {{ '::Group' | abpLocalization }}: {{ course.groupName }}
       </p>
     </div>
+  </div>
+  <div
+    class="col-span-12 lg:col-span-12 xl:col-span-12 d-flex justify-content-center align-items-center"
+    *ngIf="isStudent() && courses?.length === 0"
+  >
+    <p style="font-size: x-large">{{ '::NoCoursesOrGroups' | abpLocalization }}</p>
   </div>
 </div>

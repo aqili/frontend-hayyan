@@ -1,7 +1,7 @@
 import { AuthService, LocalizationService, RoutesService, SessionStateService } from '@abp/ng.core';
 
-import { Component, Injector } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Component, Injector, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
 
 import { eThemeSharedRouteNames, ToasterService } from '@abp/ng.theme.shared';
@@ -19,7 +19,7 @@ import { NgIdleService } from './shared/user-idle-manager/service/ng-idle.servic
   selector: 'app-root',
   templateUrl: 'app.compnent.html',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   idleTimerLeft: string;
   FULL_DASH_ARRAY = 283;
   private lastPoppedUrl: string;
@@ -37,8 +37,10 @@ export class AppComponent {
     private ngIdle: NgIdleService,
     public customAuthService: CustomAuthService,
     public userService: UserService,
-    private router: Router,private toasterService:ToasterService,
-    private location: Location
+    private router: Router,
+    private toasterService: ToasterService,
+    private location: Location,
+    private route: ActivatedRoute,
   ) {
     routes?.patch(eThemeSharedRouteNames.Administration, { invisible: true });
 
@@ -75,12 +77,12 @@ export class AppComponent {
 
  */
 
-  this.router.events.subscribe((ev:any) => {
- if (ev instanceof NavigationEnd) {
-  delay(2000)
-  this.toasterService.clear();
-    }
-});
+    this.router.events.subscribe((ev: any) => {
+      if (ev instanceof NavigationEnd) {
+        delay(2000);
+        this.toasterService.clear();
+      }
+    });
 
     this.interval = setTimeout(() => {
       this.currentUser = userService.getCurrentUser();
@@ -105,4 +107,19 @@ export class AppComponent {
       behavior: 'smooth',
     });
   } */
+
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    this.route.fragment.subscribe((fragment: string | null) => {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      if (fragment) {
+        setTimeout(() => {
+          const element = document.getElementById(fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 0);
+      }
+    });
+  }
 }

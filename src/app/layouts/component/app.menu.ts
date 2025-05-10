@@ -34,12 +34,12 @@ export class AppMenu {
       {
         label: '::Menu:Home',
         items: [
-          {
+          /*  {
             label: '::Menu:HomePage',
             icon: 'pi pi-fw pi-home',
 
             routerLink: ['/'],
-          },
+          }, */
           { label: '::Menu:Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard'] },
         ],
       },
@@ -95,7 +95,7 @@ export class AppMenu {
             routerLink: ['/student-courses'],
           },
           {
-            label: '::Menu:InstructorCourses', 
+            label: '::Menu:InstructorCourses',
             icon: 'fas fa-chalkboard-teacher',
             visible: this.userService.checkCurrentUserInRole(UserType[UserType.Instractor]),
             routerLink: ['/instructor-courses'],
@@ -103,7 +103,10 @@ export class AppMenu {
           {
             label: '::Menu:historyExperiments',
             icon: 'fas fa-chalkboard-teacher',
-            visible: this.userService.checkCurrentUserInRoles([UserType[UserType.admin],UserType[UserType.Instractor]]),
+            visible: this.userService.checkCurrentUserInRoles([
+              UserType[UserType.admin],
+              UserType[UserType.Instractor],
+            ]),
             routerLink: ['/students/history-experiment'],
           },
           // {

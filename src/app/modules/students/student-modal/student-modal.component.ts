@@ -33,6 +33,9 @@ export class StudentModalComponent extends BaseModalComponent implements OnInit 
   ngOnInit(): void {
     super.ngOnInit();
     if (this.studentId) this.getByParams(this.studentId);
+    if (this.isEdit) {
+      this.form.get('email')?.disable();
+    }
   }
   protected buildForm(): void {
     this.form = this.FormBuilder.group({
@@ -42,7 +45,7 @@ export class StudentModalComponent extends BaseModalComponent implements OnInit 
         '',
         [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(200)],
       ],
-      telephone: ['', [Validators.minLength(8), Validators.maxLength(13)]],
+      telephone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(13)]],
       id: Number,
       userType: [UserType.Student],
       appUserId: String,

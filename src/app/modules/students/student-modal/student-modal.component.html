@@ -64,16 +64,16 @@
             formControlName="telephone"
           >
           </ngx-intl-tel-input>
-        
         </div>
 
         <div class="mt-2">
           <label for="student-name">{{ '::Email' | abpLocalization }}</label>
           <input
-            type="text"
+            type="email"
             id="student-name"
             class="form-control"
             formControlName="email"
+            [disabled]="isEdit"
             autofocus
           />
         </div>
