@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { BaseModalComponent } from '@base/base-modal.component';
@@ -23,6 +23,18 @@ export class ShowExperimentComponent extends BaseModalComponent implements OnIni
     super.ngOnInit();
     var data = this.readeStringParameters();
     this.getExperimentByCourseId(data.courseId, data.experimentId, data.praxilabsId, data.groupId);
+  }
+  @ViewChild('myIframe') myIframe!: ElementRef;
+  goFullscreen() {
+    const iframeEl = this.myIframe.nativeElement;
+
+    if (iframeEl.requestFullscreen) {
+      iframeEl.requestFullscreen();
+    } else if (iframeEl.webkitRequestFullscreen) { // Safari
+      iframeEl.webkitRequestFullscreen();
+    } else if (iframeEl.msRequestFullscreen) { // IE11
+      iframeEl.msRequestFullscreen();
+    }
   }
 
   getExperimentByCourseId(

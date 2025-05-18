@@ -1,14 +1,34 @@
-<div *ngIf="experiments?.length === 0" class="no-experiments-message">
-  {{ '::NoExperimentsAvailable' | abpLocalization }}
-</div>
-<div *ngFor="let item of experiments">
-  <h2>
-    {{ item.arabicTitle }}
-  </h2>
-  <div [innerHTML]="item.arabicDescription"></div>
-  <input
-    type="button"
-    (click)="openExperiment(item)"
-    value="{{ '::StartNow' | abpLocalization }}"
-  />
+<div [ngClass]="mode">
+
+  <div *ngIf="experiments?.length === 0" class="no-experiments-message">
+    {{ '::NoExperimentsAvailable' | abpLocalization }}
+  </div>
+  <div class="card-grid">
+    <div *ngFor="let item of experiments">
+      <div class="description-card">
+     
+        <img *ngIf="item.image" [src]="item.image" alt="Lab Image" class="lab-image" />
+     
+        <h6>
+          {{ item.arabicTitle }}
+        </h6>
+        <button *ngIf="item.arabicDescription.length > 100" class="expand-btn" (click)="openDescriptionModal(item)">
+          التفاصيل
+        </button>
+        <br/>
+        <br/>
+        <input type="button" class="expand-btn"  (click)="openExperiment(item)"
+        value="{{ '::StartNow' | abpLocalization }}"/>
+      </div>
+    
+    </div>
+  </div>
+  <!-- Description Popup Modal -->
+  <div class="popup-backdrop" *ngIf="showDescriptionModal" (click)="closeDescriptionModal()"></div>
+  <div class="popup-modal" *ngIf="showDescriptionModal">
+    <button class="close-btn" (click)="closeDescriptionModal()" aria-label="إغلاق">&times;</button>
+    <h2>{{ selectedExperiment?.arabicTitle }}</h2>
+    <div class="details-header">التفاصيل</div>
+    <div [innerHTML]="selectedExperiment?.arabicDescription"></div>
+  </div>
 </div>
