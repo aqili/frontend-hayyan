@@ -1,4 +1,4 @@
-<div>
+<div class="modal-container">
   <abp-modal
     centered="true"
     scrollable="true"
@@ -7,6 +7,7 @@
     [busy]="inProgress"
     (disappear)="onCloseModel()"
     [suppressUnsavedChangesWarning]="suppressUnsavedChangesWarning"
+    class="large-modal"
   >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <ng-template #abpHeader>
@@ -39,6 +40,7 @@
             [multiple]="true"
             placeholder="Select Students"
             formControlName="studentIds"
+            [dropdownPosition]="'top'"
           >
           </ng-select>
         </div>
@@ -60,3 +62,36 @@
     </form>
   </abp-modal>
 </div>
+
+<style>
+  .modal-container ::ng-deep .modal-dialog {
+    max-width: 85vw !important;
+    width: 85vw;
+  }
+
+  .modal-container ::ng-deep .modal-content {
+    min-height: 80vh;
+  }
+
+  .modal-container ::ng-deep .ng-select {
+    min-height: 200px;
+  }
+
+  .modal-container ::ng-deep .ng-dropdown-panel {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .modal-container ::ng-deep .modal-dialog {
+      max-width: 95vw !important;
+      width: 95vw;
+      margin: 10px auto;
+    }
+    
+    .modal-container ::ng-deep .modal-content {
+      min-height: 70vh;
+    }
+  }
+</style>

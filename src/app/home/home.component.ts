@@ -1,7 +1,9 @@
 import { AuthService } from '@abp/ng.core';
 
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+  import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderService } from '@shared/service/loader.service';
+import { Shell } from '@shared/shell';
 
 @Component({
   selector: 'app-home',
@@ -30,10 +32,26 @@ export class HomeComponent implements OnInit {
   ];
   constructor(
     private authService: AuthService,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute,  private router2: Router,
   ) {}
-
+  get LoaderService(): LoaderService {
+    return Shell.injector.get(LoaderService);
+  }
   ngOnInit(): void {
+    // Show loader while page is loading
+    this.LoaderService.show();
+    
+    // Check if user is logged in
+    if (this.hasLoggedIn) {
+      // Redirect to dashboard
+      this.router2.navigate(['/dashboard']);
+      this.LoaderService.hide();
+      return;
+    }
+    
+    // Hide loader when page is done loading
+    this.LoaderService.hide();
+
     this.responsiveOptions = [
       {
         breakpoint: '1024px',

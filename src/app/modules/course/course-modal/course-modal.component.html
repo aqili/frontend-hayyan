@@ -55,7 +55,7 @@
         </div>
         <label class="mt-3">
           <input type="checkbox" id="subscribe" formControlName="isActive" />
-          IsActive
+          {{ '::IsActive' | abpLocalization }}   
         </label>
         <div class="form-group mt-3">
           <label for="course-price">{{ '::Description' | abpLocalization }}</label>
@@ -72,6 +72,7 @@
             [multiple]="true"
             placeholder="Select Experiments"
             formControlName="experimentIds"
+            [dropdownPosition]="'top'"
           >
           </ng-select>
         </div>
@@ -86,6 +87,7 @@
             [multiple]="false"
             placeholder="Select group"
             formControlName="groupId"
+            [dropdownPosition]="'top'"
           >
           </ng-select>
         </div>
@@ -100,6 +102,7 @@
             [multiple]="false"
             placeholder="Select instructor"
             formControlName="instractorId"
+            [dropdownPosition]="'top'"
           >
           </ng-select>
         </div>

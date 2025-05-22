@@ -1,19 +1,24 @@
 <div class="course-cards">
   <div class="card" *ngFor="let course of courses">
     <div class="card-body">
+      <div class="card-icon">
+        <i class="fas fa-book-open"></i>
+      </div>
       <h5 class="card-title">{{ course.fullName }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ course.courseName }}</h6>
+      <div class="card-divider"></div>
       <p class="card-text" (click)="openCourseDetails(course)">
-        {{ '::StartDate' | abpLocalization }}: {{ course.courseStartDate }}<br />
-        {{ '::EndDate' | abpLocalization }}: {{ course.courseEndDate }}<br />
+        {{ '::StartDate' | abpLocalization }}: {{ course.courseStartDate | date:'dd-MM-yyyy' }}<br />
+        {{ '::EndDate' | abpLocalization }}: {{ course.courseEndDate | date:'dd-MM-yyyy' }}<br />
         {{ '::Group' | abpLocalization }}: {{ course.groupName }}
       </p>
     </div>
   </div>
+
   <div
     class="col-span-12 lg:col-span-12 xl:col-span-12 d-flex justify-content-center align-items-center"
     *ngIf="isStudent() && courses?.length === 0"
   >
-    <p style="font-size: x-large">{{ '::NoCoursesOrGroups' | abpLocalization }}</p>
+    <p class="no-courses-text">{{ '::NoCoursesOrGroups' | abpLocalization }}</p>
   </div>
 </div>
